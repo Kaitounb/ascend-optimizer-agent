@@ -1,0 +1,427 @@
+{
+  "evaluation_id": "808e96c62f7640509c1c30aec5ebc134",
+  "session": "63bd312edf7847128a6ef4eb188e19a8",
+  "task_sha256": "c93fdd6fe4ccbbd961d97e32426c1f44ba8c4b3b1431114735ff158a36be4395",
+  "device": "npu:0",
+  "candidate": "7ccdc2c0b9e8161e",
+  "incumbent": "9b87540218c526d1",
+  "created_at": "2026-10-15T08:22:14.420984+00:00",
+  "label": "candidate_vs_incumbent",
+  "raw": {
+    "correctness": {
+      "baseline": {
+        "passed": true,
+        "cases": [
+          {
+            "shape": [
+              3,
+              127
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 9.5367431640625e-07
+          },
+          {
+            "shape": [
+              3,
+              127
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.0
+          },
+          {
+            "shape": [
+              7,
+              1025
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 7.152557373046875e-07
+          },
+          {
+            "shape": [
+              7,
+              1025
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.0
+          },
+          {
+            "shape": [
+              32,
+              1024
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 1.430511474609375e-06
+          },
+          {
+            "shape": [
+              32,
+              1024
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.0001220703125
+          },
+          {
+            "shape": [
+              128,
+              4096
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 1.9073486328125e-06
+          },
+          {
+            "shape": [
+              128,
+              4096
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.001953125
+          }
+        ],
+        "checks": [
+          "CPU reference",
+          "input immutability",
+          "output guard",
+          "NaN detection"
+        ]
+      },
+      "candidate": {
+        "passed": true,
+        "cases": [
+          {
+            "shape": [
+              3,
+              127
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 9.5367431640625e-07
+          },
+          {
+            "shape": [
+              3,
+              127
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.0
+          },
+          {
+            "shape": [
+              7,
+              1025
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 9.5367431640625e-07
+          },
+          {
+            "shape": [
+              7,
+              1025
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.0
+          },
+          {
+            "shape": [
+              32,
+              1024
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 1.430511474609375e-06
+          },
+          {
+            "shape": [
+              32,
+              1024
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.0001220703125
+          },
+          {
+            "shape": [
+              128,
+              4096
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 1.9073486328125e-06
+          },
+          {
+            "shape": [
+              128,
+              4096
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.001953125
+          }
+        ],
+        "checks": [
+          "CPU reference",
+          "input immutability",
+          "output guard",
+          "NaN detection"
+        ]
+      }
+    },
+    "cases": [
+      {
+        "case": {
+          "shape": [
+            32,
+            1024
+          ],
+          "dtype": "float32"
+        },
+        "pairs": [
+          {
+            "baseline_us": 106.81999921798706,
+            "candidate_us": 106.46200180053711,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 105.9880018234253,
+            "candidate_us": 105.56749701499939,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 104.30499911308289,
+            "candidate_us": 105.34150004386902,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 104.78799939155579,
+            "candidate_us": 105.79650402069092,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 106.45250082015991,
+            "candidate_us": 106.62750005722046,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 105.82799911499023,
+            "candidate_us": 104.63350415229797,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 104.85699772834778,
+            "candidate_us": 106.0034990310669,
+            "order": "ABBA"
+          }
+        ]
+      },
+      {
+        "case": {
+          "shape": [
+            32,
+            1024
+          ],
+          "dtype": "float16"
+        },
+        "pairs": [
+          {
+            "baseline_us": 117.8945004940033,
+            "candidate_us": 104.90999817848206,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 105.1800012588501,
+            "candidate_us": 104.74050045013428,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 104.9644947052002,
+            "candidate_us": 104.81550097465515,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 105.31150102615356,
+            "candidate_us": 105.83850145339966,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 104.84299659729004,
+            "candidate_us": 105.58800101280212,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 105.4224967956543,
+            "candidate_us": 105.69649934768677,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 104.70399856567383,
+            "candidate_us": 104.45399880409241,
+            "order": "ABBA"
+          }
+        ]
+      },
+      {
+        "case": {
+          "shape": [
+            128,
+            4096
+          ],
+          "dtype": "float32"
+        },
+        "pairs": [
+          {
+            "baseline_us": 104.88250255584717,
+            "candidate_us": 104.35900092124939,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 104.56249713897705,
+            "candidate_us": 104.80200052261353,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 105.32500147819519,
+            "candidate_us": 103.89800071716309,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 105.3790032863617,
+            "candidate_us": 104.9144983291626,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 104.90450263023376,
+            "candidate_us": 104.71349954605103,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 104.62700128555298,
+            "candidate_us": 105.91950416564941,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 105.22000193595886,
+            "candidate_us": 105.21250367164612,
+            "order": "ABBA"
+          }
+        ]
+      },
+      {
+        "case": {
+          "shape": [
+            128,
+            4096
+          ],
+          "dtype": "float16"
+        },
+        "pairs": [
+          {
+            "baseline_us": 140.00099897384644,
+            "candidate_us": 104.2074978351593,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 104.21000123023987,
+            "candidate_us": 106.36849999427795,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 106.28849864006042,
+            "candidate_us": 106.35250210762024,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 109.20450091362,
+            "candidate_us": 105.72350025177002,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 106.08900189399719,
+            "candidate_us": 106.31850361824036,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 105.52300214767456,
+            "candidate_us": 106.46600127220154,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 105.6344985961914,
+            "candidate_us": 104.74749803543091,
+            "order": "ABBA"
+          }
+        ]
+      }
+    ],
+    "timing_scope": "NPU event around repeated host launches; allocations inside run are included; compile and warmup excluded"
+  },
+  "summary": {
+    "speedup_geomean": 1.0002496096157367,
+    "bootstrap_95_interval": [
+      0.9958437515346512,
+      1.0108450023160083
+    ],
+    "per_case": [
+      {
+        "case": {
+          "shape": [
+            32,
+            1024
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 0.998358779517792,
+        "baseline_us": 105.82799911499023,
+        "candidate_us": 105.79650402069092
+      },
+      {
+        "case": {
+          "shape": [
+            32,
+            1024
+          ],
+          "dtype": "float16"
+        },
+        "speedup": 1.0014214856501147,
+        "baseline_us": 105.1800012588501,
+        "candidate_us": 104.90999817848206
+      },
+      {
+        "case": {
+          "shape": [
+            128,
+            4096
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 1.0018240540619001,
+        "baseline_us": 104.90450263023376,
+        "candidate_us": 104.80200052261353
+      },
+      {
+        "case": {
+          "shape": [
+            128,
+            4096
+          ],
+          "dtype": "float16"
+        },
+        "speedup": 0.9993981949997279,
+        "baseline_us": 106.08900189399719,
+        "candidate_us": 106.31850361824036
+      }
+    ],
+    "accepted": false,
+    "reason": "improvement_not_established",
+    "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "45a13851f0482124",
+  "source_sha256": "45a13851f0482124445139a9dad54e984d6e2204941a765db84b0c919ca0f497",
+  "config": {
+    "value_tile": 64
+  },
+  "reason": "Explicit value_tile=64 (same as resolved baseline default of 64) serves as a reproducibility control: it should match best within noise, confirming the template renders the config correctly and that any movement is real.",
+  "created_at": "2026-10-15T16:21:31.698114+00:00"
+}

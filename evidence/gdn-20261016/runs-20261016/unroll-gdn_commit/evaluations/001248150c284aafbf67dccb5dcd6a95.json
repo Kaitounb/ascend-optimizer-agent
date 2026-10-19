@@ -1,0 +1,951 @@
+{
+  "evaluation_id": "001248150c284aafbf67dccb5dcd6a95",
+  "session": "0c5a07d8d36949e0abed23048d11f14e",
+  "task_sha256": "1f9b940b347fd40adafde2bbfda895e8a68f77d4ecbc367f344c49baf35a525b",
+  "device": "npu:0",
+  "candidate": "37e68e3bbce9fa40",
+  "incumbent": "e9f3e09f4b758657",
+  "created_at": "2026-10-16T00:08:00.490513+00:00",
+  "label": "candidate_vs_incumbent",
+  "raw": {
+    "correctness": {
+      "baseline": {
+        "passed": true,
+        "cases": [
+          {
+            "shape": [
+              6,
+              6,
+              17,
+              33,
+              3
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              6,
+              6,
+              17,
+              33,
+              3
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              6,
+              6,
+              17,
+              33,
+              3
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              6,
+              6,
+              17,
+              33,
+              3
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              5,
+              4,
+              96,
+              64,
+              6
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              5,
+              4,
+              96,
+              64,
+              6
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              5,
+              4,
+              96,
+              64,
+              6
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              5,
+              4,
+              96,
+              64,
+              6
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              2,
+              256,
+              256,
+              1
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              2,
+              256,
+              256,
+              1
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              2,
+              256,
+              256,
+              1
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              2,
+              256,
+              256,
+              1
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              8,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              8,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              8,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              8,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              32,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              32,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              32,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              32,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          }
+        ],
+        "checks": [
+          "independent CPU recurrence",
+          "original NPU bitwise",
+          "all backing storage guards",
+          "immutable inputs",
+          "mixed clipped prefixes",
+          "null/reordered IDs",
+          "int32/int64 metadata"
+        ]
+      },
+      "candidate": {
+        "passed": true,
+        "cases": [
+          {
+            "shape": [
+              6,
+              6,
+              17,
+              33,
+              3
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              6,
+              6,
+              17,
+              33,
+              3
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              6,
+              6,
+              17,
+              33,
+              3
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              6,
+              6,
+              17,
+              33,
+              3
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              5,
+              4,
+              96,
+              64,
+              6
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              5,
+              4,
+              96,
+              64,
+              6
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              5,
+              4,
+              96,
+              64,
+              6
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              5,
+              4,
+              96,
+              64,
+              6
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              2,
+              256,
+              256,
+              1
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              2,
+              256,
+              256,
+              1
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              2,
+              256,
+              256,
+              1
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              2,
+              256,
+              256,
+              1
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              1,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              8,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              8,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              8,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              8,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              32,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              32,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "full",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              32,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261015,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          },
+          {
+            "shape": [
+              32,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32",
+            "mode": "edge",
+            "seed": 20261016,
+            "cpu_oracle": true,
+            "original_npu_bitwise": true
+          }
+        ],
+        "checks": [
+          "independent CPU recurrence",
+          "original NPU bitwise",
+          "all backing storage guards",
+          "immutable inputs",
+          "mixed clipped prefixes",
+          "null/reordered IDs",
+          "int32/int64 metadata"
+        ]
+      }
+    },
+    "cases": [
+      {
+        "case": {
+          "shape": [
+            1,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "pairs": [
+          {
+            "baseline_us": 127.24199891090393,
+            "candidate_us": 134.3280017375946,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 128.53200435638428,
+            "candidate_us": 130.103999376297,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 127.92399525642395,
+            "candidate_us": 128.53599786758423,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 127.87799835205078,
+            "candidate_us": 129.229998588562,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 130.77800273895264,
+            "candidate_us": 126.44599676132202,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 126.36999487876892,
+            "candidate_us": 131.60799741744995,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 125.59799551963806,
+            "candidate_us": 130.2720010280609,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 127.99200415611267,
+            "candidate_us": 128.52399945259094,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 130.2079975605011,
+            "candidate_us": 128.5860002040863,
+            "order": "ABBA"
+          }
+        ]
+      },
+      {
+        "case": {
+          "shape": [
+            8,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "pairs": [
+          {
+            "baseline_us": 136.08199954032898,
+            "candidate_us": 262.35400438308716,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 127.7400016784668,
+            "candidate_us": 257.0379972457886,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 125.72999596595764,
+            "candidate_us": 244.44599151611328,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 131.0920000076294,
+            "candidate_us": 252.4940013885498,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 130.06200194358826,
+            "candidate_us": 261.1680030822754,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 129.02400493621826,
+            "candidate_us": 256.7379951477051,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 125.50600171089172,
+            "candidate_us": 247.22999334335327,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 125.98399519920349,
+            "candidate_us": 258.5479974746704,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 130.03199696540833,
+            "candidate_us": 264.39000368118286,
+            "order": "ABBA"
+          }
+        ]
+      },
+      {
+        "case": {
+          "shape": [
+            32,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "pairs": [
+          {
+            "baseline_us": 354.57199811935425,
+            "candidate_us": 912.332010269165,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 356.275999546051,
+            "candidate_us": 934.9119663238525,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 356.1519980430603,
+            "candidate_us": 912.6120090484619,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 356.0639977455139,
+            "candidate_us": 933.620023727417,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 354.40800189971924,
+            "candidate_us": 912.1999740600586,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 355.5400013923645,
+            "candidate_us": 941.1839962005615,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 354.73599433898926,
+            "candidate_us": 935.6400012969971,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 356.2040090560913,
+            "candidate_us": 933.6259841918945,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 355.6120038032532,
+            "candidate_us": 944.8219776153564,
+            "order": "ABBA"
+          }
+        ]
+      }
+    ],
+    "timing_scope": "Original project NPU kernel vs tuned tile; reset identical backing state before every event segment outside timing; allocations, CPU oracle, compile, warmup excluded"
+  },
+  "summary": {
+    "speedup_geomean": 0.5745443916262044,
+    "bootstrap_95_interval": [
+      0.5675389799741839,
+      0.5817450687376174
+    ],
+    "per_case": [
+      {
+        "case": {
+          "shape": [
+            1,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 0.98953803102006,
+        "baseline_us": 127.92399525642395,
+        "candidate_us": 129.229998588562
+      },
+      {
+        "case": {
+          "shape": [
+            8,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 0.5025512677310925,
+        "baseline_us": 129.02400493621826,
+        "candidate_us": 257.0379972457886
+      },
+      {
+        "case": {
+          "shape": [
+            32,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 0.38137999260550526,
+        "baseline_us": 355.6120038032532,
+        "candidate_us": 933.6259841918945
+      }
+    ],
+    "accepted": false,
+    "reason": "case_regression",
+    "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+  }
+}

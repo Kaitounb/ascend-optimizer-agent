@@ -1,0 +1,9 @@
+{
+  "id": "ab8ff969e5025022",
+  "source_sha256": "ab8ff969e502502234e233218698583864a18cf4a13ae3d5535b6a02d0856495",
+  "config": {
+    "value_tile": 32
+  },
+  "reason": "Baseline uses BV=64 (tile=64 for kd=128). Smaller BV=32 halves the state tile [32,128], lowering register/shared pressure per program and may reduce the per-step reduction cost, while the grid z-dim grows from 2 to 4 giving more parallelism.",
+  "created_at": "2026-10-15T16:26:06.551955+00:00"
+}

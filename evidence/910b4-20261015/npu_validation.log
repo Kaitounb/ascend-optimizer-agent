@@ -1,0 +1,56 @@
+nohup: ignoring input
+{"tool": "compile_kernel", "ok": true, "candidate_id": "f5ae485f0181f746"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "f5ae485f0181f746"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "67cf6af05c29790a"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "67cf6af05c29790a"}
+{"tool": "bench_kernel", "ok": true, "candidate_id": "67cf6af05c29790a"}
+{"tool": "accept_candidate", "ok": true, "candidate_id": "67cf6af05c29790a"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "2d068b0ed34b3c06"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "2d068b0ed34b3c06"}
+{"tool": "bench_kernel", "ok": true, "candidate_id": "2d068b0ed34b3c06"}
+{"tool": "accept_candidate", "ok": true, "candidate_id": "2d068b0ed34b3c06"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "2d180a39edc32c43"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "2d180a39edc32c43"}
+{"tool": "bench_kernel", "ok": true, "candidate_id": "2d180a39edc32c43"}
+{"tool": "accept_candidate", "ok": true, "candidate_id": "2d180a39edc32c43"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "976e460c7f4a8087"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "976e460c7f4a8087"}
+{"tool": "bench_kernel", "ok": true, "candidate_id": "976e460c7f4a8087"}
+{"tool": "accept_candidate", "ok": true, "candidate_id": "976e460c7f4a8087"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "ee02b7a6286653ea"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "ee02b7a6286653ea"}
+{"tool": "bench_kernel", "ok": true, "candidate_id": "ee02b7a6286653ea"}
+{"tool": "accept_candidate", "ok": true, "candidate_id": "ee02b7a6286653ea"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": false, "candidate_id": "e77d01e34edb9c7a"}
+{"tool": "profile_kernel", "ok": false, "candidate_id": "67cf6af05c29790a"}
+OPERATOR_RESULT vector_add {"status": "complete", "planner": "search", "best": "67cf6af05c29790a", "baseline": "f5ae485f0181f746", "promotions": 1, "independent_improvement_established": true, "final_comparison": {"evaluation_id": "597d77aec160479ba3bb4e9314e834cd", "evidence_file": "/opt/atomgit/ascend-optimizer-agent/runs/vector_add/evaluations/597d77aec160479ba3bb4e9314e834cd.json", "speedup_geomean": 1.2306834828441444, "bootstrap_95_interval": [1.2249158370573092, 1.2377740146516838], "per_case": [{"case": {"shape": [65537], "dtype": "float32"}, "speedup": 1.0007939706705227, "baseline_us": 103.54250073432922, "candidate_us": 103.28350067138672}, {"case": {"shape": [65537], "dtype": "float16"}, "speedup": 0.9998661383273391, "baseline_us": 103.77050042152405, "candidate_us": 104.31849956512451}, {"case": {"shape": [1048576], "dtype": "float32"}, "speedup": 1.5179881923209577, "baseline_us": 158.09600353240967, "candidate_us": 104.0120005607605}, {"case": {"shape": [1048576], "dtype": "float16"}, "speedup": 1.5101863942962133, "baseline_us": 156.96499943733215, "candidate_us": 103.93750071525574}], "accepted": true, "reason": "accepted", "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"}, "finished_at": "2026-10-15T08:20:51.078300+00:00", "model_text": null, "profile": {"ok": false, "error_type": "RuntimeError", "error": "{\"ok\": false, \"error_type\": \"AttributeError\", \"error\": \"'profile' object has no attribute 'key_averages'\", \"traceback\": \"Traceback (most recent call last):\\n  File \\\"/opt/atomgit/ascend-optimizer-agent/ascend_optimizer/worker.py\\\", line 212, in main\\n    result = {\\\"ok\\\": True, \\\"result\\\": handle(request)}\\n                                    ^^^^^^^^^^^^^^^\\n  File \\\"/opt/atomgit/ascend-optimizer-agent/ascend_optimizer/worker.py\\\", line 204, in handle\\n    return profile_kernel(candidate, task, device, request[\\\"directory\\\"])\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/atomgit/ascend-optimizer-agent/ascend_optimizer/worker.py\\\", line 181, in profile_kernel\\n    table = prof.key_averages().table(sort_by=\\\"self_cpu_time_total\\\", row_limit=20)\\n            ^^^^^^^^^^^^^^^^^\\nAttributeError: 'profile' object has no attribute 'key_averages'\\n\"}"}}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "03438c33bc541d77"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "03438c33bc541d77"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "9b87540218c526d1"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "9b87540218c526d1"}
+{"tool": "bench_kernel", "ok": true, "candidate_id": "9b87540218c526d1"}
+{"tool": "accept_candidate", "ok": true, "candidate_id": "9b87540218c526d1"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "b79fd38ea36a64b3"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "b79fd38ea36a64b3"}
+{"tool": "bench_kernel", "ok": true, "candidate_id": "b79fd38ea36a64b3"}
+{"tool": "accept_candidate", "ok": true, "candidate_id": "b79fd38ea36a64b3"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "7ccdc2c0b9e8161e"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "7ccdc2c0b9e8161e"}
+{"tool": "bench_kernel", "ok": true, "candidate_id": "7ccdc2c0b9e8161e"}
+{"tool": "accept_candidate", "ok": true, "candidate_id": "7ccdc2c0b9e8161e"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "ee13749434ec118f"}
+{"tool": "validate_kernel", "ok": false, "candidate_id": "ee13749434ec118f"}
+{"tool": "profile_kernel", "ok": false, "candidate_id": "9b87540218c526d1"}
+OPERATOR_RESULT rms_norm {"status": "complete", "planner": "search", "best": "9b87540218c526d1", "baseline": "03438c33bc541d77", "promotions": 1, "independent_improvement_established": true, "final_comparison": {"evaluation_id": "69109ef85d3c4d7b9ab78f9dd40f42e3", "evidence_file": "/opt/atomgit/ascend-optimizer-agent/runs/rms_norm/evaluations/69109ef85d3c4d7b9ab78f9dd40f42e3.json", "speedup_geomean": 2.038681312664883, "bootstrap_95_interval": [2.0159759228572853, 2.0842885309741233], "per_case": [{"case": {"shape": [32, 1024], "dtype": "float32"}, "speedup": 2.160171897156218, "baseline_us": 243.07550191879272, "candidate_us": 112.07950115203857}, {"case": {"shape": [32, 1024], "dtype": "float16"}, "speedup": 2.5251613292467034, "baseline_us": 278.0604958534241, "candidate_us": 111.26949787139893}, {"case": {"shape": [128, 4096], "dtype": "float32"}, "speedup": 1.5594167869523285, "baseline_us": 172.11000323295593, "candidate_us": 110.77200174331665}, {"case": {"shape": [128, 4096], "dtype": "float16"}, "speedup": 2.0307558894311506, "baseline_us": 223.1165051460266, "candidate_us": 109.23100113868713}], "accepted": true, "reason": "accepted", "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"}, "finished_at": "2026-10-15T08:22:32.356720+00:00", "model_text": null, "profile": {"ok": false, "error_type": "RuntimeError", "error": "{\"ok\": false, \"error_type\": \"AttributeError\", \"error\": \"'profile' object has no attribute 'key_averages'\", \"traceback\": \"Traceback (most recent call last):\\n  File \\\"/opt/atomgit/ascend-optimizer-agent/ascend_optimizer/worker.py\\\", line 212, in main\\n    result = {\\\"ok\\\": True, \\\"result\\\": handle(request)}\\n                                    ^^^^^^^^^^^^^^^\\n  File \\\"/opt/atomgit/ascend-optimizer-agent/ascend_optimizer/worker.py\\\", line 204, in handle\\n    return profile_kernel(candidate, task, device, request[\\\"directory\\\"])\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"/opt/atomgit/ascend-optimizer-agent/ascend_optimizer/worker.py\\\", line 181, in profile_kernel\\n    table = prof.key_averages().table(sort_by=\\\"self_cpu_time_total\\\", row_limit=20)\\n            ^^^^^^^^^^^^^^^^^\\nAttributeError: 'profile' object has no attribute 'key_averages'\\n\"}"}}
+NEGATIVE_CHECK_PASS
+NPU_INTEGRATION_COMPLETE

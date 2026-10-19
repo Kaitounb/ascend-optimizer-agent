@@ -1,0 +1,10 @@
+{
+  "id": "04af589d22252731",
+  "source_sha256": "04af589d22252731409cf2c2cd27ae8291dd092f95cd27a03ebe43259ed0b402",
+  "config": {
+    "unroll": true,
+    "value_tile": 16
+  },
+  "reason": "value_tile=128 overflowed UB (tile [128,128] fp32 too large). Try the smallest feasible tile, 16, with unroll. Much smaller UB footprint per program; 8 tiles per head gives far more programs which may improve NPU core occupancy for the small-batch (1,48,...) cases. Risk: 8x redundant state reloads vs baseline's 2 tiles.",
+  "created_at": "2026-10-16T00:13:33.591416+00:00"
+}

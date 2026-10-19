@@ -1,0 +1,18 @@
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pytest
+  Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting iniconfig>=1.0.1 (from pytest)
+  Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Requirement already satisfied: packaging>=22 in /usr/local/python3.11.14/lib/python3.11/site-packages (from pytest) (26.0)
+Collecting pluggy<2,>=1.5 (from pytest)
+  Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/python3.11.14/lib/python3.11/site-packages (from pytest) (2.19.2)
+Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Installing collected packages: pluggy, iniconfig, pytest
+
+Successfully installed iniconfig-2.3.1 pluggy-1.7.0 pytest-9.1.1
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip

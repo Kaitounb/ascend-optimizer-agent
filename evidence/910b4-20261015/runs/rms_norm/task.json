@@ -1,0 +1,63 @@
+{
+  "operator": "rms_norm",
+  "description": "out = x * rsqrt(mean(x.float()**2, -1) + eps) * weight; FP32 accumulation.",
+  "dtypes": [
+    "float32",
+    "float16"
+  ],
+  "epsilon": 1e-06,
+  "validation_shapes": [
+    [
+      3,
+      127
+    ],
+    [
+      7,
+      1025
+    ]
+  ],
+  "benchmark_shapes": [
+    [
+      32,
+      1024
+    ],
+    [
+      128,
+      4096
+    ]
+  ],
+  "baseline_config": {
+    "implementation": "torch_eager",
+    "rows": 1
+  },
+  "search_configs": [
+    {
+      "implementation": "triton",
+      "rows": 1
+    },
+    {
+      "implementation": "triton",
+      "rows": 2
+    },
+    {
+      "implementation": "triton",
+      "rows": 4
+    },
+    {
+      "implementation": "triton",
+      "rows": 8
+    }
+  ],
+  "schema_version": 1,
+  "seed": 20261015,
+  "measurement": {
+    "warmup": 10,
+    "iterations": 20,
+    "rounds": 7
+  },
+  "acceptance": {
+    "min_speedup": 1.02,
+    "min_case_speedup": 0.98,
+    "bootstrap_samples": 2000
+  }
+}

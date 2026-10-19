@@ -1,0 +1,10 @@
+{
+  "id": "30d8421f4637c9a1",
+  "source_sha256": "30d8421f4637c9a10e1f11c46b7b1c0cfca395d3f98fc53a8cef5eee51f73d5c",
+  "config": {
+    "unroll": true,
+    "value_tile": 128
+  },
+  "reason": "Very large value tile BV=128 with unroll: single tile per (row,head) since kd<=128, minimizes program count and per-program launch overhead while unrolling the tiny window.",
+  "created_at": "2026-10-16T00:04:32.972066+00:00"
+}

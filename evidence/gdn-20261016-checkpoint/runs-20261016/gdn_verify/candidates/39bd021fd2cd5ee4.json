@@ -1,0 +1,9 @@
+{
+  "id": "39bd021fd2cd5ee4",
+  "source_sha256": "39bd021fd2cd5ee477e1f51d0731ed3d1535644f36d9dac3ec2b3225426a6dcd",
+  "config": {
+    "value_tile": 16
+  },
+  "reason": "BV=16 gives the smallest state tile [16,128] and the most parallelism (grid z=8), minimizing per-programregister footprint at the cost of duplicated per-step work across 8 value tiles.",
+  "created_at": "2026-10-15T16:26:06.579588+00:00"
+}

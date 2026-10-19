@@ -1,0 +1,10 @@
+{
+  "id": "f5ae485f0181f746",
+  "source_sha256": "f5ae485f0181f7463d7e867d55a13a8878a81e12ba1f56d100f47d66b46edb44",
+  "config": {
+    "block": 256,
+    "unroll": 1
+  },
+  "reason": "Original task baseline",
+  "created_at": "2026-10-15T08:19:15.174963+00:00"
+}

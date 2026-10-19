@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "real_npu": true,
+  "model_is_fixture": true,
+  "requests": [
+    {
+      "tools": 10,
+      "messages": 2
+    },
+    {
+      "tools": 10,
+      "messages": 4
+    },
+    {
+      "tools": 10,
+      "messages": 6
+    },
+    {
+      "tools": 10,
+      "messages": 8
+    },
+    {
+      "tools": 10,
+      "messages": 10
+    },
+    {
+      "tools": 10,
+      "messages": 12
+    }
+  ]
+}

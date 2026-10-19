@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "task_sha256": "0a7ed50cd49a58edfb437123c537ebea5f6f0324efce6de5dbc06c8a4e00fe67",
+  "baseline": "f5ae485f0181f746",
+  "best": "2d068b0ed34b3c06",
+  "promotions": 1,
+  "created_at": "2026-10-15T08:25:09.254177+00:00"
+}

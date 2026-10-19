@@ -1,0 +1,4 @@
+{
+  "configs": {},
+  "scope": "48 heads, 128x128, window4, batch<=32; public API unchanged"
+}

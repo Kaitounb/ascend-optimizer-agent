@@ -1,0 +1,154 @@
+{
+  "events": 93,
+  "categories": {
+    "cpu_op": 5,
+    "dequeue": 5,
+    "async_task_queue": 10,
+    "enqueue": 5,
+    "uncategorized": 48,
+    "HostToDevice": 10,
+    "async_npu": 10
+  },
+  "longest_complete_events": [
+    {
+      "name": "_commit_kernel",
+      "category": "uncategorized",
+      "process": 1467808,
+      "thread": 47,
+      "trace_duration_us": 339.3065
+    },
+    {
+      "name": "Computing",
+      "category": "uncategorized",
+      "process": 1468320,
+      "thread": 2,
+      "trace_duration_us": 339.306
+    },
+    {
+      "name": "_commit_kernel",
+      "category": "uncategorized",
+      "process": 1467808,
+      "thread": 47,
+      "trace_duration_us": 338.847
+    },
+    {
+      "name": "Computing",
+      "category": "uncategorized",
+      "process": 1468320,
+      "thread": 2,
+      "trace_duration_us": 338.847
+    },
+    {
+      "name": "_commit_kernel",
+      "category": "uncategorized",
+      "process": 1467808,
+      "thread": 47,
+      "trace_duration_us": 338.2265
+    },
+    {
+      "name": "Computing",
+      "category": "uncategorized",
+      "process": 1468320,
+      "thread": 2,
+      "trace_duration_us": 338.226
+    },
+    {
+      "name": "_commit_kernel",
+      "category": "uncategorized",
+      "process": 1467808,
+      "thread": 47,
+      "trace_duration_us": 337.307
+    },
+    {
+      "name": "Computing",
+      "category": "uncategorized",
+      "process": 1468320,
+      "thread": 2,
+      "trace_duration_us": 337.307
+    },
+    {
+      "name": "_commit_kernel",
+      "category": "uncategorized",
+      "process": 1467808,
+      "thread": 47,
+      "trace_duration_us": 336.0465
+    },
+    {
+      "name": "Computing",
+      "category": "uncategorized",
+      "process": 1468320,
+      "thread": 2,
+      "trace_duration_us": 336.046
+    },
+    {
+      "name": "Dequeue@_commit_kernel",
+      "category": "dequeue",
+      "process": 1433,
+      "thread": 1464,
+      "trace_duration_us": 43.95
+    },
+    {
+      "name": "_commit_kernel",
+      "category": "cpu_op",
+      "process": 1433,
+      "thread": 1433,
+      "trace_duration_us": 28.44
+    },
+    {
+      "name": "Enqueue@_commit_kernel",
+      "category": "enqueue",
+      "process": 1433,
+      "thread": 1433,
+      "trace_duration_us": 21.8
+    },
+    {
+      "name": "_commit_kernel",
+      "category": "cpu_op",
+      "process": 1433,
+      "thread": 1433,
+      "trace_duration_us": 17.45
+    },
+    {
+      "name": "_commit_kernel",
+      "category": "cpu_op",
+      "process": 1433,
+      "thread": 1433,
+      "trace_duration_us": 17.33
+    },
+    {
+      "name": "Enqueue@_commit_kernel",
+      "category": "enqueue",
+      "process": 1433,
+      "thread": 1433,
+      "trace_duration_us": 14.99
+    },
+    {
+      "name": "_commit_kernel",
+      "category": "cpu_op",
+      "process": 1433,
+      "thread": 1433,
+      "trace_duration_us": 14.38
+    },
+    {
+      "name": "Enqueue@_commit_kernel",
+      "category": "enqueue",
+      "process": 1433,
+      "thread": 1433,
+      "trace_duration_us": 14.19
+    },
+    {
+      "name": "_commit_kernel",
+      "category": "cpu_op",
+      "process": 1433,
+      "thread": 1433,
+      "trace_duration_us": 11.63
+    },
+    {
+      "name": "Dequeue@_commit_kernel",
+      "category": "dequeue",
+      "process": 1433,
+      "thread": 1464,
+      "trace_duration_us": 11.06
+    }
+  ]
+}

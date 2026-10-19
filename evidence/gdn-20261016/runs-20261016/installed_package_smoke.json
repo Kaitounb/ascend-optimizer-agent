@@ -1,0 +1,8 @@
+{
+  "version": "0.2.0",
+  "installed_module": "/opt/atomgit/.local/lib/python3.11/site-packages/ascend_optimizer/__init__.py",
+  "real_npu": {
+    "compiled_and_launched": true,
+    "source": "Frozen project kernel, real NPU launch"
+  }
+}

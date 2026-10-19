@@ -1,0 +1,21 @@
+test_chat_protocol (test_api.ProtocolTests.test_chat_protocol) ... ok
+test_reject_http_nonloopback_and_credentials_in_url (test_api.ProtocolTests.test_reject_http_nonloopback_and_credentials_in_url) ... ok
+test_responses_protocol (test_api.ProtocolTests.test_responses_protocol) ... ok
+test_cannot_promote_without_real_pipeline (test_contract.ContractTests.test_cannot_promote_without_real_pipeline) ... ok
+test_changed_incumbent_requires_fresh_pairing (test_contract.ContractTests.test_changed_incumbent_requires_fresh_pairing) ... ok
+test_recompile_failure_clears_previous_validation (test_contract.ContractTests.test_recompile_failure_clears_previous_validation) ... ok
+test_resume_preserves_best_but_discards_benchmark_authority (test_contract.ContractTests.test_resume_preserves_best_but_discards_benchmark_authority) ... ok
+test_source_tampering_invalidates_evidence (test_contract.ContractTests.test_source_tampering_invalidates_evidence) ... ok
+test_task_edits_fail_closed (test_contract.ContractTests.test_task_edits_fail_closed) ... ok
+test_unknown_tool_or_invalid_config_is_not_executed (test_contract.ContractTests.test_unknown_tool_or_invalid_config_is_not_executed) ... ok
+test_contract_rejects_unbounded_allocation (test_contract.StatisticsTests.test_contract_rejects_unbounded_allocation) ... ok
+test_nan_zero_negative_and_missing_samples_rejected (test_contract.StatisticsTests.test_nan_zero_negative_and_missing_samples_rejected) ... ok
+test_strong_win_promotes_and_regression_is_rejected (test_contract.StatisticsTests.test_strong_win_promotes_and_regression_is_rejected) ... ok
+test_custom_key_environment_is_removed_by_value (test_runtime.RuntimeTests.test_custom_key_environment_is_removed_by_value) ... ok
+test_profiler_trace_summary_does_not_need_key_averages (test_runtime.RuntimeTests.test_profiler_trace_summary_does_not_need_key_averages) ... ok
+test_timeout_terminates_process_and_keeps_workspace (test_runtime.RuntimeTests.test_timeout_terminates_process_and_keeps_workspace) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.447s
+
+OK

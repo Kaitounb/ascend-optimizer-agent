@@ -1,0 +1,23 @@
+[2026-10-16-08:18:39.879] [INFO] [AscendProfiler_ProfilingParser:97] Profiler logger initialized at: /opt/atomgit/ascend-optimizer-agent/runs-20261016/unroll-gdn_verify/export_only_prof_dir/68b018405e71e85266e72725_7635_20261016081839444_ascend_pt/logs/profiler_20261016081839_11303_ProfilingParser.log
+[2026-10-16-08:18:39.925] [INFO] [AscendProfiler_ProfilingParser:100] TorchOpParser start.
+[2026-10-16-08:18:39.925] [INFO] [AscendProfiler_ProfilingParser:82] TaskQueueParser start.
+[2026-10-16-08:18:39.952] [INFO] [AscendProfiler_ProfilingParser:163] CANNTimelineParser start.
+[2026-10-16-08:18:39.953] [INFO] [AscendProfiler_ProfilingParser:106] TorchOpParser finish.
+[2026-10-16-08:18:39.956] [INFO] [AscendProfiler_ProfilingParser:88] TaskQueueParser finish.
+[2026-10-16-08:18:39.977] [INFO] [AscendProfiler_ProfilingParser:62] TreeBuildParser start.
+[2026-10-16-08:18:39.979] [INFO] [AscendProfiler_ProfilingParser:70] TreeBuildParser finish.
+[2026-10-16-08:18:41.483] [INFO] [AscendProfiler_ProfilingParser:173] CANNTimelineParser finish.
+[2026-10-16-08:18:41.488] [INFO] [AscendProfiler_ProfilingParser:175] Read timeline data finish.
+[2026-10-16-08:18:41.488] [INFO] [AscendProfiler_ProfilingParser:32] RelationParser start.
+[2026-10-16-08:18:41.490] [INFO] [AscendProfiler_ProfilingParser:41] RelationParser finish.
+[2026-10-16-08:18:42.528] [INFO] [AscendProfiler_ProfilingParser:473] ============================================================
+[2026-10-16-08:18:42.528] [INFO] [AscendProfiler_ProfilingParser:474] Task execution completed
+[2026-10-16-08:18:42.528] [INFO] [AscendProfiler_ProfilingParser:475] ============================================================
+[2026-10-16-08:18:42.529] [INFO] [AscendProfiler_ProfilingParser:478] torch_op                  | PTHREAD         | Succeed    | 0.029s | deps: None
+[2026-10-16-08:18:42.529] [INFO] [AscendProfiler_ProfilingParser:478] task_queue                | PTHREAD         | Succeed    | 0.031s | deps: None
+[2026-10-16-08:18:42.529] [INFO] [AscendProfiler_ProfilingParser:478] export                    | SUB_PROCESS     | Succeed    | 2.065s | deps: None
+[2026-10-16-08:18:42.529] [INFO] [AscendProfiler_ProfilingParser:478] timeline                  | PTHREAD|NON_BLOCKING | Succeed    | 1.538s | deps: None
+[2026-10-16-08:18:42.529] [INFO] [AscendProfiler_ProfilingParser:478] trace_prepare             | SUB_PROCESS     | Succeed    | 0.027s | deps: torch_op, task_queue
+[2026-10-16-08:18:42.529] [INFO] [AscendProfiler_ProfilingParser:478] build_tree                | PTHREAD         | Succeed    | 0.004s | deps: torch_op, task_queue
+[2026-10-16-08:18:42.529] [INFO] [AscendProfiler_ProfilingParser:478] relation                  | PTHREAD         | Succeed    | 0.003s | deps: task_queue, timeline
+[2026-10-16-08:18:42.529] [INFO] [AscendProfiler_ProfilingParser:478] trace                     | SUB_PROCESS     | Succeed    | 0.031s | deps: build_tree, trace_prepare, relation, timeline, task_queue

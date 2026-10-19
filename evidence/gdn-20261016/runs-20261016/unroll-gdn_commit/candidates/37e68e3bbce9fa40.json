@@ -1,0 +1,10 @@
+{
+  "id": "37e68e3bbce9fa40",
+  "source_sha256": "37e68e3bbce9fa40cf0ff55eb4d6a69311f2339d2fb2ad43dbf664b877e02f0c",
+  "config": {
+    "unroll": true,
+    "value_tile": 16
+  },
+  "reason": "BV=16 with unroll: smaller state tile should fit UB where BV=64/128 overflowed. Isolates whether unroll helps at small tiles.",
+  "created_at": "2026-10-16T00:04:38.491082+00:00"
+}

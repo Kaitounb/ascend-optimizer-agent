@@ -1,0 +1,68 @@
+{
+  "status": "complete",
+  "planner": "chat:local-protocol-fixture",
+  "best": "2d068b0ed34b3c06",
+  "baseline": "f5ae485f0181f746",
+  "promotions": 1,
+  "independent_improvement_established": true,
+  "final_comparison": {
+    "evaluation_id": "f65222c484b7401e8620ee1847208ff0",
+    "evidence_file": "/opt/atomgit/ascend-optimizer-agent/runs/http_agent_npu/evaluations/f65222c484b7401e8620ee1847208ff0.json",
+    "speedup_geomean": 1.258053732924746,
+    "bootstrap_95_interval": [
+      1.2522953871870977,
+      1.2660847166187947
+    ],
+    "per_case": [
+      {
+        "case": {
+          "shape": [
+            65537
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 0.9890154124385189,
+        "baseline_us": 96.62899971008301,
+        "candidate_us": 97.82999753952026
+      },
+      {
+        "case": {
+          "shape": [
+            65537
+          ],
+          "dtype": "float16"
+        },
+        "speedup": 0.9923155632590561,
+        "baseline_us": 96.46050035953522,
+        "candidate_us": 96.28799855709076
+      },
+      {
+        "case": {
+          "shape": [
+            1048576
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 1.59458576144477,
+        "baseline_us": 156.2999963760376,
+        "candidate_us": 97.83450067043304
+      },
+      {
+        "case": {
+          "shape": [
+            1048576
+          ],
+          "dtype": "float16"
+        },
+        "speedup": 1.6006486724026598,
+        "baseline_us": 157.25350379943848,
+        "candidate_us": 97.97199964523315
+      }
+    ],
+    "accepted": true,
+    "reason": "accepted",
+    "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+  },
+  "finished_at": "2026-10-15T08:25:23.309725+00:00",
+  "model_text": "本地 API 替身的工具调用流程完成，不代表真实模型推理。"
+}

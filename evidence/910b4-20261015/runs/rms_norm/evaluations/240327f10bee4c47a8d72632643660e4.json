@@ -1,0 +1,427 @@
+{
+  "evaluation_id": "240327f10bee4c47a8d72632643660e4",
+  "session": "63bd312edf7847128a6ef4eb188e19a8",
+  "task_sha256": "c93fdd6fe4ccbbd961d97e32426c1f44ba8c4b3b1431114735ff158a36be4395",
+  "device": "npu:0",
+  "candidate": "9b87540218c526d1",
+  "incumbent": "03438c33bc541d77",
+  "created_at": "2026-10-15T08:21:28.404851+00:00",
+  "label": "candidate_vs_incumbent",
+  "raw": {
+    "correctness": {
+      "baseline": {
+        "passed": true,
+        "cases": [
+          {
+            "shape": [
+              3,
+              127
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 4.76837158203125e-07
+          },
+          {
+            "shape": [
+              3,
+              127
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.0
+          },
+          {
+            "shape": [
+              7,
+              1025
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 4.76837158203125e-07
+          },
+          {
+            "shape": [
+              7,
+              1025
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.00048828125
+          },
+          {
+            "shape": [
+              32,
+              1024
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 1.430511474609375e-06
+          },
+          {
+            "shape": [
+              32,
+              1024
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.0001220703125
+          },
+          {
+            "shape": [
+              128,
+              4096
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 1.9073486328125e-06
+          },
+          {
+            "shape": [
+              128,
+              4096
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.001953125
+          }
+        ],
+        "checks": [
+          "CPU reference",
+          "input immutability",
+          "output guard",
+          "NaN detection"
+        ]
+      },
+      "candidate": {
+        "passed": true,
+        "cases": [
+          {
+            "shape": [
+              3,
+              127
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 9.5367431640625e-07
+          },
+          {
+            "shape": [
+              3,
+              127
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.0
+          },
+          {
+            "shape": [
+              7,
+              1025
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 7.152557373046875e-07
+          },
+          {
+            "shape": [
+              7,
+              1025
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.0
+          },
+          {
+            "shape": [
+              32,
+              1024
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 1.430511474609375e-06
+          },
+          {
+            "shape": [
+              32,
+              1024
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.0001220703125
+          },
+          {
+            "shape": [
+              128,
+              4096
+            ],
+            "dtype": "float32",
+            "seeds": 2,
+            "max_abs_error": 1.9073486328125e-06
+          },
+          {
+            "shape": [
+              128,
+              4096
+            ],
+            "dtype": "float16",
+            "seeds": 2,
+            "max_abs_error": 0.001953125
+          }
+        ],
+        "checks": [
+          "CPU reference",
+          "input immutability",
+          "output guard",
+          "NaN detection"
+        ]
+      }
+    },
+    "cases": [
+      {
+        "case": {
+          "shape": [
+            32,
+            1024
+          ],
+          "dtype": "float32"
+        },
+        "pairs": [
+          {
+            "baseline_us": 214.16749954223633,
+            "candidate_us": 109.47799682617188,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 214.94899988174438,
+            "candidate_us": 109.33200120925903,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 214.20849561691284,
+            "candidate_us": 108.10949802398682,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 212.0940089225769,
+            "candidate_us": 109.71300005912781,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 214.29799795150757,
+            "candidate_us": 108.05000066757202,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 211.92699670791626,
+            "candidate_us": 110.50300002098083,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 213.82100582122803,
+            "candidate_us": 107.56600499153137,
+            "order": "ABBA"
+          }
+        ]
+      },
+      {
+        "case": {
+          "shape": [
+            32,
+            1024
+          ],
+          "dtype": "float16"
+        },
+        "pairs": [
+          {
+            "baseline_us": 267.7880048751831,
+            "candidate_us": 107.86699652671814,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 264.68650102615356,
+            "candidate_us": 108.25449824333191,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 255.83250522613525,
+            "candidate_us": 106.8340003490448,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 254.00599241256714,
+            "candidate_us": 107.99700021743774,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 253.4714937210083,
+            "candidate_us": 106.92350268363953,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 252.95100212097168,
+            "candidate_us": 108.42300057411194,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 254.97150421142578,
+            "candidate_us": 106.73249959945679,
+            "order": "ABBA"
+          }
+        ]
+      },
+      {
+        "case": {
+          "shape": [
+            128,
+            4096
+          ],
+          "dtype": "float32"
+        },
+        "pairs": [
+          {
+            "baseline_us": 161.8774950504303,
+            "candidate_us": 105.80649971961975,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 210.70350408554077,
+            "candidate_us": 109.49100255966187,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 160.58499813079834,
+            "candidate_us": 106.26450181007385,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 163.02499771118164,
+            "candidate_us": 107.68700242042542,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 159.7699999809265,
+            "candidate_us": 106.71200156211853,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 164.6595001220703,
+            "candidate_us": 106.91949725151062,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 161.16299629211426,
+            "candidate_us": 106.74200057983398,
+            "order": "ABBA"
+          }
+        ]
+      },
+      {
+        "case": {
+          "shape": [
+            128,
+            4096
+          ],
+          "dtype": "float16"
+        },
+        "pairs": [
+          {
+            "baseline_us": 214.75199460983276,
+            "candidate_us": 106.57000541687012,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 209.77399349212646,
+            "candidate_us": 108.52349996566772,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 212.87800073623657,
+            "candidate_us": 105.83949685096741,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 209.0975046157837,
+            "candidate_us": 109.67999696731567,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 208.31149816513062,
+            "candidate_us": 106.3260018825531,
+            "order": "ABBA"
+          },
+          {
+            "baseline_us": 212.909996509552,
+            "candidate_us": 107.18250274658203,
+            "order": "BAAB"
+          },
+          {
+            "baseline_us": 210.00850200653076,
+            "candidate_us": 105.57500123977661,
+            "order": "ABBA"
+          }
+        ]
+      }
+    ],
+    "timing_scope": "NPU event around repeated host launches; allocations inside run are included; compile and warmup excluded"
+  },
+  "summary": {
+    "speedup_geomean": 1.9385925646000068,
+    "bootstrap_95_interval": [
+      1.919239591830414,
+      1.9579788378283178
+    ],
+    "per_case": [
+      {
+        "case": {
+          "shape": [
+            32,
+            1024
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 1.9660209042578187,
+        "baseline_us": 214.16749954223633,
+        "candidate_us": 109.33200120925903
+      },
+      {
+        "case": {
+          "shape": [
+            32,
+            1024
+          ],
+          "dtype": "float16"
+        },
+        "speedup": 2.3888834719347605,
+        "baseline_us": 254.97150421142578,
+        "candidate_us": 107.86699652671814
+      },
+      {
+        "case": {
+          "shape": [
+            128,
+            4096
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 1.5138781287151888,
+        "baseline_us": 161.8774950504303,
+        "candidate_us": 106.74200057983398
+      },
+      {
+        "case": {
+          "shape": [
+            128,
+            4096
+          ],
+          "dtype": "float16"
+        },
+        "speedup": 1.9864249392734163,
+        "baseline_us": 210.00850200653076,
+        "candidate_us": 106.57000541687012
+      }
+    ],
+    "accepted": true,
+    "reason": "accepted",
+    "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "status": "complete",
+  "planner": "chat:deepseek-v4-flash",
+  "best": "276eb610f870d733",
+  "baseline": "276eb610f870d733",
+  "promotions": 0,
+  "independent_improvement_established": false,
+  "final_comparison": {
+    "evaluation_id": "9bd171be7b244c9f8d985fec8a5ec896",
+    "evidence_file": "/opt/atomgit/ascend-optimizer-agent/runs-20261016/unroll-gdn_verify/evaluations/9bd171be7b244c9f8d985fec8a5ec896.json",
+    "speedup_geomean": 0.9971255183303701,
+    "bootstrap_95_interval": [
+      0.9933421217187051,
+      1.0015748671739697
+    ],
+    "per_case": [
+      {
+        "case": {
+          "shape": [
+            1,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 0.9903819530606123,
+        "baseline_us": 165.51600098609924,
+        "candidate_us": 166.14999771118164
+      },
+      {
+        "case": {
+          "shape": [
+            1,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "bfloat16"
+        },
+        "speedup": 0.9960842029412152,
+        "baseline_us": 167.38199591636658,
+        "candidate_us": 167.41399765014648
+      },
+      {
+        "case": {
+          "shape": [
+            8,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 1.0012801109043155,
+        "baseline_us": 208.05400609970093,
+        "candidate_us": 207.97799825668335
+      },
+      {
+        "case": {
+          "shape": [
+            8,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "bfloat16"
+        },
+        "speedup": 0.9951876542884359,
+        "baseline_us": 214.11199569702148,
+        "candidate_us": 215.01200199127197
+      },
+      {
+        "case": {
+          "shape": [
+            32,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 0.9995633630356463,
+        "baseline_us": 728.1019926071167,
+        "candidate_us": 728.2999992370605
+      },
+      {
+        "case": {
+          "shape": [
+            32,
+            48,
+            128,
+            128,
+            4
+          ],
+          "dtype": "bfloat16"
+        },
+        "speedup": 1.0002978041187127,
+        "baseline_us": 759.3140125274658,
+        "candidate_us": 758.9579820632935
+      }
+    ],
+    "accepted": false,
+    "reason": "improvement_not_established",
+    "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+  },
+  "finished_at": "2026-10-16T00:19:39.538072+00:00",
+  "model_text": "The profile shows `_verify_kernel` dominates (~700µs for the largest case), with negligible host/enqueue overhead — the cost is squarely in-kernel compute, so tile-width is the right lever. This confirms we're not bound by launch overhead.\n\nI've completed a useful series of decisions. Summary of what has been established:\n\n**测试结果总结（中文）：**\n\n| 配置 | 结果 |\n|---|---|\n| value_tile=64 + unroll | UB 溢出，编译失败 |\n| value_tile=128 | UB 溢出，编译失败 |\n| value_tile=32 + unroll | 0.79x（慢于基线） |\n| value_tile=16 + unroll | 0.67x（最差） |\n| value_tile=64（无 unroll） | 1.00x（与基线逐案例等价） |\n| value_tile=32（无 unroll） | 0.93x |\n\n**关键发现：**\n1. **基线模板的 tile 选择（kd≤128 时取 64）已接近最优。** 显式设 value_tile=64 且不 unroll 时，性能与基线在噪声内完全一致（0.9996x），验证该配置就是基线的实际代码路径。\n2. **增大 tile 到 128 会导致 UB（统一缓冲区）溢出**：单个 [128,128] fp32 状态块超出可用 UB（需约 2.1M bits，仅有 1.57M bits），编译器直接报错。\n3. **缩小 tile（32/16）稳定变慢**（0.93x / 0.67x），因为每个 head 被切成更多 tile，而每个 tile 都要重新加载完整状态——重复状态加载成本压过了并行度收益。大 batch 形状退化最明显。\n4. **unroll 单独也带来约 0.79x 的退化**（在 tile=32 下），说明静态展开 window 循环后与 UB 压力叠加，不利于该内核。\n\n**局限性：** 本任务仅暴露 `value_tile` 与 `unroll` 两个可调参数，且 UE 上限约束了 tile 宽度；在可行范围内没有找到能超过 1.02x 门槛的配置。因此**保持基线不变**（0 次提升）是诚实的结论——内核在可行配置空间内已达到局部最优。profiler 仅用于诊断（显示瓶颈在 kernel 内部计算而非调度开销），不作为验收证据。",
+  "profile": {
+    "ok": true,
+    "result": {
+      "trace": "/opt/atomgit/ascend-optimizer-agent/runs-20261016/unroll-gdn_verify/profiles/276eb610f870d733-eef4e781/trace.json",
+      "summary": {
+        "events": 93,
+        "categories": {
+          "cpu_op": 5,
+          "dequeue": 5,
+          "async_task_queue": 10,
+          "enqueue": 5,
+          "uncategorized": 48,
+          "HostToDevice": 10,
+          "async_npu": 10
+        },
+        "longest_complete_events": [
+          {
+            "name": "_verify_kernel",
+            "category": "uncategorized",
+            "process": 7818656,
+            "thread": 47,
+            "trace_duration_us": 701.22
+          },
+          {
+            "name": "Computing",
+            "category": "uncategorized",
+            "process": 7819168,
+            "thread": 2,
+            "trace_duration_us": 701.22
+          },
+          {
+            "name": "_verify_kernel",
+            "category": "uncategorized",
+            "process": 7818656,
+            "thread": 47,
+            "trace_duration_us": 700.88
+          },
+          {
+            "name": "Computing",
+            "category": "uncategorized",
+            "process": 7819168,
+            "thread": 2,
+            "trace_duration_us": 700.88
+          },
+          {
+            "name": "_verify_kernel",
+            "category": "uncategorized",
+            "process": 7818656,
+            "thread": 47,
+            "trace_duration_us": 700.46
+          },
+          {
+            "name": "Computing",
+            "category": "uncategorized",
+            "process": 7819168,
+            "thread": 2,
+            "trace_duration_us": 700.46
+          },
+          {
+            "name": "_verify_kernel",
+            "category": "uncategorized",
+            "process": 7818656,
+            "thread": 47,
+            "trace_duration_us": 699.56
+          },
+          {
+            "name": "Computing",
+            "category": "uncategorized",
+            "process": 7819168,
+            "thread": 2,
+            "trace_duration_us": 699.56
+          },
+          {
+            "name": "_verify_kernel",
+            "category": "uncategorized",
+            "process": 7818656,
+            "thread": 47,
+            "trace_duration_us": 699.24
+          },
+          {
+            "name": "Computing",
+            "category": "uncategorized",
+            "process": 7819168,
+            "thread": 2,
+            "trace_duration_us": 699.24
+          },
+          {
+            "name": "Dequeue@_verify_kernel",
+            "category": "dequeue",
+            "process": 7635,
+            "thread": 7666,
+            "trace_duration_us": 60.06
+          },
+          {
+            "name": "_verify_kernel",
+            "category": "cpu_op",
+            "process": 7635,
+            "thread": 7635,
+            "trace_duration_us": 33.63
+          },
+          {
+            "name": "_verify_kernel",
+            "category": "cpu_op",
+            "process": 7635,
+            "thread": 7635,
+            "trace_duration_us": 24.97
+          },
+          {
+            "name": "Enqueue@_verify_kernel",
+            "category": "enqueue",
+            "process": 7635,
+            "thread": 7635,
+            "trace_duration_us": 22.34
+          },
+          {
+            "name": "_verify_kernel",
+            "category": "cpu_op",
+            "process": 7635,
+            "thread": 7635,
+            "trace_duration_us": 21.43
+          },
+          {
+            "name": "_verify_kernel",
+            "category": "cpu_op",
+            "process": 7635,
+            "thread": 7635,
+            "trace_duration_us": 14.98
+          },
+          {
+            "name": "Enqueue@_verify_kernel",
+            "category": "enqueue",
+            "process": 7635,
+            "thread": 7635,
+            "trace_duration_us": 12.98
+          },
+          {
+            "name": "Enqueue@_verify_kernel",
+            "category": "enqueue",
+            "process": 7635,
+            "thread": 7635,
+            "trace_duration_us": 12.79
+          },
+          {
+            "name": "_verify_kernel",
+            "category": "cpu_op",
+            "process": 7635,
+            "thread": 7635,
+            "trace_duration_us": 11.13
+          },
+          {
+            "name": "Enqueue@_verify_kernel",
+            "category": "enqueue",
+            "process": 7635,
+            "thread": 7635,
+            "trace_duration_us": 10.31
+          }
+        ]
+      },
+      "invocations": 5,
+      "note": "Profiler is diagnostic, not acceptance timing"
+    }
+  }
+}

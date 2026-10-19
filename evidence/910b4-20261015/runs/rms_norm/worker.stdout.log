@@ -1,0 +1,12 @@
+[2026-10-15 16:22:32] [WARNING] [3839] profiler.py: Invalid parameter export_type: None, reset it to text.
+[2026-10-15 16:22:32] [WARNING] [3839] profiler.py: Invalid parameter export_type: None, reset it to text.
+[2026-10-15 16:22:32] [WARNING] [3839] profiler.py: Incorrect schedule: Stop profiler while current state is RECORD which may result in incomplete parsed data.
+[2026-10-15 16:22:32] [INFO] [5805] profiler.py: Start parsing profiling data: /opt/atomgit/ascend-optimizer-agent/runs/rms_norm/export_only_prof_dir/68b018405e71e85266e72725_3839_20261015162232383_ascend_pt
+|/-[2026-10-15 16:22:34] [INFO] [5814] profiler.py: CANN profiling data parsed in a total time of 0:00:02.031541
+[2026-10-15 16:22:35] [INFO] [5805] profiler.py: All profiling data parsed in a total time of 0:00:02.683413
+[2026-10-15 16:25:05] [WARNING] [6523] profiler.py: Invalid parameter export_type: None, reset it to text.
+[2026-10-15 16:25:05] [WARNING] [6523] profiler.py: Invalid parameter export_type: None, reset it to text.
+[2026-10-15 16:25:05] [WARNING] [6523] profiler.py: Incorrect schedule: Stop profiler while current state is RECORD which may result in incomplete parsed data.
+[2026-10-15 16:25:05] [INFO] [6584] profiler.py: Start parsing profiling data: /opt/atomgit/ascend-optimizer-agent/runs/rms_norm/export_only_prof_dir/68b018405e71e85266e72725_6523_20261015162505114_ascend_pt
+|/-[2026-10-15 16:25:07] [INFO] [6593] profiler.py: CANN profiling data parsed in a total time of 0:00:02.027925
+[2026-10-15 16:25:08] [INFO] [6584] profiler.py: All profiling data parsed in a total time of 0:00:02.684248

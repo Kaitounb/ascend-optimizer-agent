@@ -1,0 +1,154 @@
+{
+  "events": 93,
+  "categories": {
+    "cpu_op": 5,
+    "dequeue": 5,
+    "async_task_queue": 10,
+    "enqueue": 5,
+    "uncategorized": 48,
+    "HostToDevice": 10,
+    "async_npu": 10
+  },
+  "longest_complete_events": [
+    {
+      "name": "_verify_kernel",
+      "category": "uncategorized",
+      "process": 7818656,
+      "thread": 47,
+      "trace_duration_us": 701.22
+    },
+    {
+      "name": "Computing",
+      "category": "uncategorized",
+      "process": 7819168,
+      "thread": 2,
+      "trace_duration_us": 701.22
+    },
+    {
+      "name": "_verify_kernel",
+      "category": "uncategorized",
+      "process": 7818656,
+      "thread": 47,
+      "trace_duration_us": 700.88
+    },
+    {
+      "name": "Computing",
+      "category": "uncategorized",
+      "process": 7819168,
+      "thread": 2,
+      "trace_duration_us": 700.88
+    },
+    {
+      "name": "_verify_kernel",
+      "category": "uncategorized",
+      "process": 7818656,
+      "thread": 47,
+      "trace_duration_us": 700.46
+    },
+    {
+      "name": "Computing",
+      "category": "uncategorized",
+      "process": 7819168,
+      "thread": 2,
+      "trace_duration_us": 700.46
+    },
+    {
+      "name": "_verify_kernel",
+      "category": "uncategorized",
+      "process": 7818656,
+      "thread": 47,
+      "trace_duration_us": 699.56
+    },
+    {
+      "name": "Computing",
+      "category": "uncategorized",
+      "process": 7819168,
+      "thread": 2,
+      "trace_duration_us": 699.56
+    },
+    {
+      "name": "_verify_kernel",
+      "category": "uncategorized",
+      "process": 7818656,
+      "thread": 47,
+      "trace_duration_us": 699.24
+    },
+    {
+      "name": "Computing",
+      "category": "uncategorized",
+      "process": 7819168,
+      "thread": 2,
+      "trace_duration_us": 699.24
+    },
+    {
+      "name": "Dequeue@_verify_kernel",
+      "category": "dequeue",
+      "process": 7635,
+      "thread": 7666,
+      "trace_duration_us": 60.06
+    },
+    {
+      "name": "_verify_kernel",
+      "category": "cpu_op",
+      "process": 7635,
+      "thread": 7635,
+      "trace_duration_us": 33.63
+    },
+    {
+      "name": "_verify_kernel",
+      "category": "cpu_op",
+      "process": 7635,
+      "thread": 7635,
+      "trace_duration_us": 24.97
+    },
+    {
+      "name": "Enqueue@_verify_kernel",
+      "category": "enqueue",
+      "process": 7635,
+      "thread": 7635,
+      "trace_duration_us": 22.34
+    },
+    {
+      "name": "_verify_kernel",
+      "category": "cpu_op",
+      "process": 7635,
+      "thread": 7635,
+      "trace_duration_us": 21.43
+    },
+    {
+      "name": "_verify_kernel",
+      "category": "cpu_op",
+      "process": 7635,
+      "thread": 7635,
+      "trace_duration_us": 14.98
+    },
+    {
+      "name": "Enqueue@_verify_kernel",
+      "category": "enqueue",
+      "process": 7635,
+      "thread": 7635,
+      "trace_duration_us": 12.98
+    },
+    {
+      "name": "Enqueue@_verify_kernel",
+      "category": "enqueue",
+      "process": 7635,
+      "thread": 7635,
+      "trace_duration_us": 12.79
+    },
+    {
+      "name": "_verify_kernel",
+      "category": "cpu_op",
+      "process": 7635,
+      "thread": 7635,
+      "trace_duration_us": 11.13
+    },
+    {
+      "name": "Enqueue@_verify_kernel",
+      "category": "enqueue",
+      "process": 7635,
+      "thread": 7635,
+      "trace_duration_us": 10.31
+    }
+  ]
+}

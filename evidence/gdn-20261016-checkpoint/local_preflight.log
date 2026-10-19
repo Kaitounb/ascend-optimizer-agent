@@ -1,0 +1,4 @@
+nohup: ignoring input
+{"tool": "compile_kernel", "ok": true, "candidate_id": "e9f3e09f4b758657"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "e9f3e09f4b758657"}
+LOCAL_GDN_PREFLIGHT_PASS

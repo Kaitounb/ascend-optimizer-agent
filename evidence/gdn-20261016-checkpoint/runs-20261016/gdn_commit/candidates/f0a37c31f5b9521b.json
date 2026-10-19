@@ -1,0 +1,9 @@
+{
+  "id": "f0a37c31f5b9521b",
+  "source_sha256": "f0a37c31f5b9521b6e9ab0ef52c0b43dd141e4ccc196359dca3e5322957a442a",
+  "config": {
+    "value_tile": 128
+  },
+  "reason": "value_tile=32 regressed badly (0.84x), scaling worse with batch size, indicating program-count redundancy dominates. With value_tile=128 there is a single program per (row,head) along vd (cdiv(128,128)=1), so the key/decay loads of the inner replay loop are done once instead of once per vd-tile. State tile becomes 128x128 fp32. Test whether eliminating the redundant loads across vd-tiles outweighs the larger per-program tile.",
+  "created_at": "2026-10-15T16:21:31.676624+00:00"
+}

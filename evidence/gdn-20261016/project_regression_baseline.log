@@ -1,0 +1,563 @@
+/usr/local/python3.11.14/lib/python3.11/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-8.5.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.11.14/lib/python3.11/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-8.5.0/aarch64-linux/ascend_toolkit_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.11.14/lib/python3.11/site-packages/torch_npu/utils/_path_manager.py:66: UserWarning: Permission mismatch: The owner of /usr/local/python3.11.14/lib/python3.11/site-packages/torch_npu/lib/libop_plugin_atb.so does not match.
+  warnings.warn(f"Permission mismatch: The owner of {path} does not match.")
+/usr/local/python3.11.14/lib/python3.11/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-8.5.0 owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+/usr/local/python3.11.14/lib/python3.11/site-packages/torch_npu/utils/collect_env.py:58: UserWarning: Warning: The /usr/local/Ascend/cann-8.5.0/aarch64-linux/ascend_toolkit_install.info owner does not match the current owner.
+  warnings.warn(f"Warning: The {path} owner does not match the current owner.")
+.......................FFF..FF.....................................                                                                                                                                                                                                                                              [100%]
+======================================================================================================================================================= FAILURES =======================================================================================================================================================
+_________________________________________________________________________________________________________________________ test_fused_commit_matches_per_layer_across_shared_groups[geometry0] __________________________________________________________________________________________________________________________
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/compiler/compiler.py:310: in compile
+    next_module = compile_ir(module, metadata)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/compiler.py:767: in <lambda>
+    stages["ttadapter"] = lambda src, metadata: ttir_to_linalg(
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/compiler.py:135: in ttir_to_linalg
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/triton-adapter-opt', '/tmp/tmpe5uhp08j/kernel.ttir.mlir', '--discrete-mask-access-conversion=compile-on-910-95=False force-simt-template=False', '--triton-to-annotation', '--triton-to-unstructure=compile-on-910-95=False force-simt-template=False', '--triton-to-hivm', '--triton-to-hfusion', '--triton-to-llvm', '--bubble-up-operation', '--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False enable-select-analysis=False compile-on-910-95=False', '-o', '/tmp/tmpe5uhp08j/kernel.ttadapter.mlir']' died with <Signals.SIGABRT: 6>.
+
+During handling of the above exception, another exception occurred:
+project_regression/test_original_gdn_batch.py:105: in test_fused_commit_matches_per_layer_across_shared_groups
+    layout.commit(entries)
+/usr/local/python3.11.14/lib/python3.11/site-packages/torch/utils/_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+ascend_optimizer/project_sources/gdn_recover_batch.py:154: in commit
+    _batch_commit[(len(entries), batch, pieces)](
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/runtime/jit.py:353: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/runtime/jit.py:660: in run
+    kernel = self.compile(
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/compiler/compiler.py:320: in compile
+    raise MLIRCompilationError(stage_name, error_detail)
+E   triton.compiler.errors.MLIRCompilationError: 
+E   ///------------------[ERROR][Triton][BEG]------------------
+E   [ConvertTritonIRToLinalgIR] encounters error:
+E   %174 = "scf.if"(%173) ({
+E     %208 = "arith.muli"(%73, %27) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %209 = "arith.addi"(%117, %208) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %210 = "arith.subi"(%110, %51) <{overflowFlags = #arith.overflow<none>}> : (i32, i32) -> i32
+E     %211 = "tensor.empty"() : () -> tensor<4x1xi32>
+E     %212 = "linalg.fill"(%210, %211) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg26: i32, %arg27: i32):
+E       "linalg.yield"(%arg26) : (i32) -> ()
+E     }) : (i32, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %213 = "tt.splat"(%210) : (i32) -> tensor<4x1xi32>
+E     %214 = "arith.addi"(%213, %160) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi32>, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %215 = "arith.muli"(%214, %26) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi32>, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %216 = "arith.extsi"(%215) : (tensor<4x1xi32>) -> tensor<4x1xi64>
+E     %217 = "tensor.empty"() : () -> tensor<4x1xi64>
+E     %218 = "linalg.fill"(%209, %217) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg24: i64, %arg25: i64):
+E       "linalg.yield"(%arg24) : (i64) -> ()
+E     }) : (i64, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %219 = "tt.splat"(%209) : (i64) -> tensor<4x1xi64>
+E     %220 = "arith.addi"(%219, %216) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi64>, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %221 = "arith.extsi"(%164) : (tensor<1x128xi32>) -> tensor<1x128xi64>
+E     %222 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %223 = "tensor.collapse_shape"(%220) <{reassociation = [[0, 1]]}> : (tensor<4x1xi64>) -> tensor<4xi64>
+E     %224 = "linalg.broadcast"(%223, %222) <{dimensions = array<i64: 1>}> ({
+E     ^bb0(%arg22: i64, %arg23: i64):
+E       "linalg.yield"(%arg22) : (i64) -> ()
+E     }) : (tensor<4xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %225 = "tt.broadcast"(%220) : (tensor<4x1xi64>) -> tensor<4x128xi64>
+E     %226 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %227 = "tensor.collapse_shape"(%221) <{reassociation = [[0, 1]]}> : (tensor<1x128xi64>) -> tensor<128xi64>
+E     %228 = "linalg.broadcast"(%227, %226) <{dimensions = array<i64: 0>}> ({
+E     ^bb0(%arg20: i64, %arg21: i64):
+E       "linalg.yield"(%arg20) : (i64) -> ()
+E     }) : (tensor<128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %229 = "tt.broadcast"(%221) : (tensor<1x128xi64>) -> tensor<4x128xi64>
+E     %230 = "arith.addi"(%225, %229) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     "scf.yield"(%230) : (tensor<4x128xi64>) -> ()
+E   }, {
+E     %190 = "arith.muli"(%73, %27) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %191 = "arith.addi"(%141, %190) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %192 = "arith.muli"(%160, %26) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi32>, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %193 = "arith.extsi"(%192) : (tensor<4x1xi32>) -> tensor<4x1xi64>
+E     %194 = "tensor.empty"() : () -> tensor<4x1xi64>
+E     %195 = "linalg.fill"(%191, %194) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg18: i64, %arg19: i64):
+E       "linalg.yield"(%arg18) : (i64) -> ()
+E     }) : (i64, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %196 = "tt.splat"(%191) : (i64) -> tensor<4x1xi64>
+E     %197 = "arith.addi"(%196, %193) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi64>, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %198 = "arith.extsi"(%164) : (tensor<1x128xi32>) -> tensor<1x128xi64>
+E     %199 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %200 = "tensor.collapse_shape"(%197) <{reassociation = [[0, 1]]}> : (tensor<4x1xi64>) -> tensor<4xi64>
+E     %201 = "linalg.broadcast"(%200, %199) <{dimensions = array<i64: 1>}> ({
+E     ^bb0(%arg16: i64, %arg17: i64):
+E       "linalg.yield"(%arg16) : (i64) -> ()
+E     }) : (tensor<4xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %202 = "tt.broadcast"(%197) : (tensor<4x1xi64>) -> tensor<4x128xi64>
+E     %203 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %204 = "tensor.collapse_shape"(%198) <{reassociation = [[0, 1]]}> : (tensor<1x128xi64>) -> tensor<128xi64>
+E     %205 = "linalg.broadcast"(%204, %203) <{dimensions = array<i64: 0>}> ({
+E     ^bb0(%arg14: i64, %arg15: i64):
+E       "linalg.yield"(%arg14) : (i64) -> ()
+E     }) : (tensor<128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %206 = "tt.broadcast"(%198) : (tensor<1x128xi64>) -> tensor<4x128xi64>
+E     %207 = "arith.addi"(%202, %206) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     "scf.yield"(%207) : (tensor<4x128xi64>) -> ()
+E   }) {MetaUse} : (i1) -> tensor<4x128xi64>
+E   encountered AddPtrOp produced by unsupported operation
+E   UNREACHABLE executed at /opt/agent_1751872158640/workspace/j_H6RlRMam/triton-ascend/ascend/triton-adapter/lib/TritonToLinalg/BlockPtrAnalysis.cpp:484!
+E   PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+E   Stack dump:
+E   0.	Program arguments: /usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/triton-adapter-opt /tmp/tmpe5uhp08j/kernel.ttir.mlir "--discrete-mask-access-conversion=compile-on-910-95=False force-simt-template=False" --triton-to-annotation "--triton-to-unstructure=compile-on-910-95=False force-simt-template=False" --triton-to-hivm --triton-to-hfusion --triton-to-llvm --bubble-up-operation "--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False enable-select-analysis=False compile-on-910-95=False" -o /tmp/tmpe5uhp08j/kernel.ttadapter.mlir
+E   ///------------------[ERROR][Triton][END]------------------
+------------------------------------------------------------------------------------------------------------------------------------------------- Captured stdout call -------------------------------------------------------------------------------------------------------------------------------------------------
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+_________________________________________________________________________________________________________________________ test_fused_commit_matches_per_layer_across_shared_groups[geometry1] __________________________________________________________________________________________________________________________
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/compiler/compiler.py:310: in compile
+    next_module = compile_ir(module, metadata)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/compiler.py:767: in <lambda>
+    stages["ttadapter"] = lambda src, metadata: ttir_to_linalg(
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/compiler.py:135: in ttir_to_linalg
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/triton-adapter-opt', '/tmp/tmpjk35wb05/kernel.ttir.mlir', '--discrete-mask-access-conversion=compile-on-910-95=False force-simt-template=False', '--triton-to-annotation', '--triton-to-unstructure=compile-on-910-95=False force-simt-template=False', '--triton-to-hivm', '--triton-to-hfusion', '--triton-to-llvm', '--bubble-up-operation', '--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False enable-select-analysis=False compile-on-910-95=False', '-o', '/tmp/tmpjk35wb05/kernel.ttadapter.mlir']' died with <Signals.SIGABRT: 6>.
+
+During handling of the above exception, another exception occurred:
+project_regression/test_original_gdn_batch.py:105: in test_fused_commit_matches_per_layer_across_shared_groups
+    layout.commit(entries)
+/usr/local/python3.11.14/lib/python3.11/site-packages/torch/utils/_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+ascend_optimizer/project_sources/gdn_recover_batch.py:154: in commit
+    _batch_commit[(len(entries), batch, pieces)](
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/runtime/jit.py:353: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/runtime/jit.py:660: in run
+    kernel = self.compile(
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/compiler/compiler.py:320: in compile
+    raise MLIRCompilationError(stage_name, error_detail)
+E   triton.compiler.errors.MLIRCompilationError: 
+E   ///------------------[ERROR][Triton][BEG]------------------
+E   [ConvertTritonIRToLinalgIR] encounters error:
+E   %178 = "scf.if"(%177) ({
+E     %212 = "arith.muli"(%77, %29) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %213 = "arith.addi"(%121, %212) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %214 = "arith.subi"(%114, %55) <{overflowFlags = #arith.overflow<none>}> : (i32, i32) -> i32
+E     %215 = "tensor.empty"() : () -> tensor<8x1xi32>
+E     %216 = "linalg.fill"(%214, %215) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg26: i32, %arg27: i32):
+E       "linalg.yield"(%arg26) : (i32) -> ()
+E     }) : (i32, tensor<8x1xi32>) -> tensor<8x1xi32>
+E     %217 = "tt.splat"(%214) : (i32) -> tensor<8x1xi32>
+E     %218 = "arith.addi"(%217, %164) <{overflowFlags = #arith.overflow<none>}> : (tensor<8x1xi32>, tensor<8x1xi32>) -> tensor<8x1xi32>
+E     %219 = "arith.muli"(%218, %28) <{overflowFlags = #arith.overflow<none>}> : (tensor<8x1xi32>, tensor<8x1xi32>) -> tensor<8x1xi32>
+E     %220 = "arith.extsi"(%219) : (tensor<8x1xi32>) -> tensor<8x1xi64>
+E     %221 = "tensor.empty"() : () -> tensor<8x1xi64>
+E     %222 = "linalg.fill"(%213, %221) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg24: i64, %arg25: i64):
+E       "linalg.yield"(%arg24) : (i64) -> ()
+E     }) : (i64, tensor<8x1xi64>) -> tensor<8x1xi64>
+E     %223 = "tt.splat"(%213) : (i64) -> tensor<8x1xi64>
+E     %224 = "arith.addi"(%223, %220) <{overflowFlags = #arith.overflow<none>}> : (tensor<8x1xi64>, tensor<8x1xi64>) -> tensor<8x1xi64>
+E     %225 = "arith.extsi"(%168) : (tensor<1x128xi32>) -> tensor<1x128xi64>
+E     %226 = "tensor.empty"() : () -> tensor<8x128xi64>
+E     %227 = "tensor.collapse_shape"(%224) <{reassociation = [[0, 1]]}> : (tensor<8x1xi64>) -> tensor<8xi64>
+E     %228 = "linalg.broadcast"(%227, %226) <{dimensions = array<i64: 1>}> ({
+E     ^bb0(%arg22: i64, %arg23: i64):
+E       "linalg.yield"(%arg22) : (i64) -> ()
+E     }) : (tensor<8xi64>, tensor<8x128xi64>) -> tensor<8x128xi64>
+E     %229 = "tt.broadcast"(%224) : (tensor<8x1xi64>) -> tensor<8x128xi64>
+E     %230 = "tensor.empty"() : () -> tensor<8x128xi64>
+E     %231 = "tensor.collapse_shape"(%225) <{reassociation = [[0, 1]]}> : (tensor<1x128xi64>) -> tensor<128xi64>
+E     %232 = "linalg.broadcast"(%231, %230) <{dimensions = array<i64: 0>}> ({
+E     ^bb0(%arg20: i64, %arg21: i64):
+E       "linalg.yield"(%arg20) : (i64) -> ()
+E     }) : (tensor<128xi64>, tensor<8x128xi64>) -> tensor<8x128xi64>
+E     %233 = "tt.broadcast"(%225) : (tensor<1x128xi64>) -> tensor<8x128xi64>
+E     %234 = "arith.addi"(%229, %233) <{overflowFlags = #arith.overflow<none>}> : (tensor<8x128xi64>, tensor<8x128xi64>) -> tensor<8x128xi64>
+E     "scf.yield"(%234) : (tensor<8x128xi64>) -> ()
+E   }, {
+E     %194 = "arith.muli"(%77, %29) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %195 = "arith.addi"(%145, %194) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %196 = "arith.muli"(%164, %28) <{overflowFlags = #arith.overflow<none>}> : (tensor<8x1xi32>, tensor<8x1xi32>) -> tensor<8x1xi32>
+E     %197 = "arith.extsi"(%196) : (tensor<8x1xi32>) -> tensor<8x1xi64>
+E     %198 = "tensor.empty"() : () -> tensor<8x1xi64>
+E     %199 = "linalg.fill"(%195, %198) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg18: i64, %arg19: i64):
+E       "linalg.yield"(%arg18) : (i64) -> ()
+E     }) : (i64, tensor<8x1xi64>) -> tensor<8x1xi64>
+E     %200 = "tt.splat"(%195) : (i64) -> tensor<8x1xi64>
+E     %201 = "arith.addi"(%200, %197) <{overflowFlags = #arith.overflow<none>}> : (tensor<8x1xi64>, tensor<8x1xi64>) -> tensor<8x1xi64>
+E     %202 = "arith.extsi"(%168) : (tensor<1x128xi32>) -> tensor<1x128xi64>
+E     %203 = "tensor.empty"() : () -> tensor<8x128xi64>
+E     %204 = "tensor.collapse_shape"(%201) <{reassociation = [[0, 1]]}> : (tensor<8x1xi64>) -> tensor<8xi64>
+E     %205 = "linalg.broadcast"(%204, %203) <{dimensions = array<i64: 1>}> ({
+E     ^bb0(%arg16: i64, %arg17: i64):
+E       "linalg.yield"(%arg16) : (i64) -> ()
+E     }) : (tensor<8xi64>, tensor<8x128xi64>) -> tensor<8x128xi64>
+E     %206 = "tt.broadcast"(%201) : (tensor<8x1xi64>) -> tensor<8x128xi64>
+E     %207 = "tensor.empty"() : () -> tensor<8x128xi64>
+E     %208 = "tensor.collapse_shape"(%202) <{reassociation = [[0, 1]]}> : (tensor<1x128xi64>) -> tensor<128xi64>
+E     %209 = "linalg.broadcast"(%208, %207) <{dimensions = array<i64: 0>}> ({
+E     ^bb0(%arg14: i64, %arg15: i64):
+E       "linalg.yield"(%arg14) : (i64) -> ()
+E     }) : (tensor<128xi64>, tensor<8x128xi64>) -> tensor<8x128xi64>
+E     %210 = "tt.broadcast"(%202) : (tensor<1x128xi64>) -> tensor<8x128xi64>
+E     %211 = "arith.addi"(%206, %210) <{overflowFlags = #arith.overflow<none>}> : (tensor<8x128xi64>, tensor<8x128xi64>) -> tensor<8x128xi64>
+E     "scf.yield"(%211) : (tensor<8x128xi64>) -> ()
+E   }) {MetaUse} : (i1) -> tensor<8x128xi64>
+E   encountered AddPtrOp produced by unsupported operation
+E   UNREACHABLE executed at /opt/agent_1751872158640/workspace/j_H6RlRMam/triton-ascend/ascend/triton-adapter/lib/TritonToLinalg/BlockPtrAnalysis.cpp:484!
+E   PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+E   Stack dump:
+E   0.	Program arguments: /usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/triton-adapter-opt /tmp/tmpjk35wb05/kernel.ttir.mlir "--discrete-mask-access-conversion=compile-on-910-95=False force-simt-template=False" --triton-to-annotation "--triton-to-unstructure=compile-on-910-95=False force-simt-template=False" --triton-to-hivm --triton-to-hfusion --triton-to-llvm --bubble-up-operation "--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False enable-select-analysis=False compile-on-910-95=False" -o /tmp/tmpjk35wb05/kernel.ttadapter.mlir
+E   ///------------------[ERROR][Triton][END]------------------
+------------------------------------------------------------------------------------------------------------------------------------------------- Captured stdout call -------------------------------------------------------------------------------------------------------------------------------------------------
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+_________________________________________________________________________________________________________________________ test_fused_commit_matches_per_layer_across_shared_groups[geometry2] __________________________________________________________________________________________________________________________
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/compiler/compiler.py:310: in compile
+    next_module = compile_ir(module, metadata)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/compiler.py:767: in <lambda>
+    stages["ttadapter"] = lambda src, metadata: ttir_to_linalg(
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/compiler.py:135: in ttir_to_linalg
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/triton-adapter-opt', '/tmp/tmp9td5il7a/kernel.ttir.mlir', '--discrete-mask-access-conversion=compile-on-910-95=False force-simt-template=False', '--triton-to-annotation', '--triton-to-unstructure=compile-on-910-95=False force-simt-template=False', '--triton-to-hivm', '--triton-to-hfusion', '--triton-to-llvm', '--bubble-up-operation', '--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False enable-select-analysis=False compile-on-910-95=False', '-o', '/tmp/tmp9td5il7a/kernel.ttadapter.mlir']' died with <Signals.SIGABRT: 6>.
+
+During handling of the above exception, another exception occurred:
+project_regression/test_original_gdn_batch.py:105: in test_fused_commit_matches_per_layer_across_shared_groups
+    layout.commit(entries)
+/usr/local/python3.11.14/lib/python3.11/site-packages/torch/utils/_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+ascend_optimizer/project_sources/gdn_recover_batch.py:154: in commit
+    _batch_commit[(len(entries), batch, pieces)](
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/runtime/jit.py:353: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/runtime/jit.py:660: in run
+    kernel = self.compile(
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/compiler/compiler.py:320: in compile
+    raise MLIRCompilationError(stage_name, error_detail)
+E   triton.compiler.errors.MLIRCompilationError: 
+E   ///------------------[ERROR][Triton][BEG]------------------
+E   [ConvertTritonIRToLinalgIR] encounters error:
+E   %175 = "scf.if"(%174) ({
+E     %209 = "arith.muli"(%74, %29) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %210 = "arith.addi"(%118, %209) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %211 = "arith.subi"(%111, %52) <{overflowFlags = #arith.overflow<none>}> : (i32, i32) -> i32
+E     %212 = "tensor.empty"() : () -> tensor<4x1xi32>
+E     %213 = "linalg.fill"(%211, %212) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg26: i32, %arg27: i32):
+E       "linalg.yield"(%arg26) : (i32) -> ()
+E     }) : (i32, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %214 = "tt.splat"(%211) : (i32) -> tensor<4x1xi32>
+E     %215 = "arith.addi"(%214, %161) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi32>, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %216 = "arith.muli"(%215, %28) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi32>, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %217 = "arith.extsi"(%216) : (tensor<4x1xi32>) -> tensor<4x1xi64>
+E     %218 = "tensor.empty"() : () -> tensor<4x1xi64>
+E     %219 = "linalg.fill"(%210, %218) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg24: i64, %arg25: i64):
+E       "linalg.yield"(%arg24) : (i64) -> ()
+E     }) : (i64, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %220 = "tt.splat"(%210) : (i64) -> tensor<4x1xi64>
+E     %221 = "arith.addi"(%220, %217) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi64>, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %222 = "arith.extsi"(%165) : (tensor<1x128xi32>) -> tensor<1x128xi64>
+E     %223 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %224 = "tensor.collapse_shape"(%221) <{reassociation = [[0, 1]]}> : (tensor<4x1xi64>) -> tensor<4xi64>
+E     %225 = "linalg.broadcast"(%224, %223) <{dimensions = array<i64: 1>}> ({
+E     ^bb0(%arg22: i64, %arg23: i64):
+E       "linalg.yield"(%arg22) : (i64) -> ()
+E     }) : (tensor<4xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %226 = "tt.broadcast"(%221) : (tensor<4x1xi64>) -> tensor<4x128xi64>
+E     %227 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %228 = "tensor.collapse_shape"(%222) <{reassociation = [[0, 1]]}> : (tensor<1x128xi64>) -> tensor<128xi64>
+E     %229 = "linalg.broadcast"(%228, %227) <{dimensions = array<i64: 0>}> ({
+E     ^bb0(%arg20: i64, %arg21: i64):
+E       "linalg.yield"(%arg20) : (i64) -> ()
+E     }) : (tensor<128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %230 = "tt.broadcast"(%222) : (tensor<1x128xi64>) -> tensor<4x128xi64>
+E     %231 = "arith.addi"(%226, %230) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     "scf.yield"(%231) : (tensor<4x128xi64>) -> ()
+E   }, {
+E     %191 = "arith.muli"(%74, %29) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %192 = "arith.addi"(%142, %191) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %193 = "arith.muli"(%161, %28) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi32>, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %194 = "arith.extsi"(%193) : (tensor<4x1xi32>) -> tensor<4x1xi64>
+E     %195 = "tensor.empty"() : () -> tensor<4x1xi64>
+E     %196 = "linalg.fill"(%192, %195) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg18: i64, %arg19: i64):
+E       "linalg.yield"(%arg18) : (i64) -> ()
+E     }) : (i64, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %197 = "tt.splat"(%192) : (i64) -> tensor<4x1xi64>
+E     %198 = "arith.addi"(%197, %194) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi64>, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %199 = "arith.extsi"(%165) : (tensor<1x128xi32>) -> tensor<1x128xi64>
+E     %200 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %201 = "tensor.collapse_shape"(%198) <{reassociation = [[0, 1]]}> : (tensor<4x1xi64>) -> tensor<4xi64>
+E     %202 = "linalg.broadcast"(%201, %200) <{dimensions = array<i64: 1>}> ({
+E     ^bb0(%arg16: i64, %arg17: i64):
+E       "linalg.yield"(%arg16) : (i64) -> ()
+E     }) : (tensor<4xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %203 = "tt.broadcast"(%198) : (tensor<4x1xi64>) -> tensor<4x128xi64>
+E     %204 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %205 = "tensor.collapse_shape"(%199) <{reassociation = [[0, 1]]}> : (tensor<1x128xi64>) -> tensor<128xi64>
+E     %206 = "linalg.broadcast"(%205, %204) <{dimensions = array<i64: 0>}> ({
+E     ^bb0(%arg14: i64, %arg15: i64):
+E       "linalg.yield"(%arg14) : (i64) -> ()
+E     }) : (tensor<128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %207 = "tt.broadcast"(%199) : (tensor<1x128xi64>) -> tensor<4x128xi64>
+E     %208 = "arith.addi"(%203, %207) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     "scf.yield"(%208) : (tensor<4x128xi64>) -> ()
+E   }) {MetaUse} : (i1) -> tensor<4x128xi64>
+E   encountered AddPtrOp produced by unsupported operation
+E   UNREACHABLE executed at /opt/agent_1751872158640/workspace/j_H6RlRMam/triton-ascend/ascend/triton-adapter/lib/TritonToLinalg/BlockPtrAnalysis.cpp:484!
+E   PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+E   Stack dump:
+E   0.	Program arguments: /usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/triton-adapter-opt /tmp/tmp9td5il7a/kernel.ttir.mlir "--discrete-mask-access-conversion=compile-on-910-95=False force-simt-template=False" --triton-to-annotation "--triton-to-unstructure=compile-on-910-95=False force-simt-template=False" --triton-to-hivm --triton-to-hfusion --triton-to-llvm --bubble-up-operation "--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False enable-select-analysis=False compile-on-910-95=False" -o /tmp/tmp9td5il7a/kernel.ttadapter.mlir
+E   ///------------------[ERROR][Triton][END]------------------
+------------------------------------------------------------------------------------------------------------------------------------------------- Captured stdout call -------------------------------------------------------------------------------------------------------------------------------------------------
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+________________________________________________________________________________________________________________________ test_context_commits_device_sampled_tokens_in_forward_row_order[True] _________________________________________________________________________________________________________________________
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/compiler/compiler.py:310: in compile
+    next_module = compile_ir(module, metadata)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/compiler.py:767: in <lambda>
+    stages["ttadapter"] = lambda src, metadata: ttir_to_linalg(
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/compiler.py:135: in ttir_to_linalg
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/triton-adapter-opt', '/tmp/tmpecr8vkma/kernel.ttir.mlir', '--discrete-mask-access-conversion=compile-on-910-95=False force-simt-template=False', '--triton-to-annotation', '--triton-to-unstructure=compile-on-910-95=False force-simt-template=False', '--triton-to-hivm', '--triton-to-hfusion', '--triton-to-llvm', '--bubble-up-operation', '--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False enable-select-analysis=False compile-on-910-95=False', '-o', '/tmp/tmpecr8vkma/kernel.ttadapter.mlir']' died with <Signals.SIGABRT: 6>.
+
+During handling of the above exception, another exception occurred:
+project_regression/test_original_gdn_batch.py:151: in test_context_commits_device_sampled_tokens_in_forward_row_order
+    context.commit(sampled)
+/usr/local/python3.11.14/lib/python3.11/site-packages/torch/utils/_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+frozen_project_context:144: in commit
+    ???
+/usr/local/python3.11.14/lib/python3.11/site-packages/torch/utils/_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+ascend_optimizer/project_sources/gdn_recover_batch.py:154: in commit
+    _batch_commit[(len(entries), batch, pieces)](
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/runtime/jit.py:353: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/runtime/jit.py:660: in run
+    kernel = self.compile(
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/compiler/compiler.py:320: in compile
+    raise MLIRCompilationError(stage_name, error_detail)
+E   triton.compiler.errors.MLIRCompilationError: 
+E   ///------------------[ERROR][Triton][BEG]------------------
+E   [ConvertTritonIRToLinalgIR] encounters error:
+E   %172 = "scf.if"(%171) ({
+E     %206 = "arith.muli"(%72, %27) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %207 = "arith.addi"(%116, %206) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %208 = "arith.subi"(%109, %50) <{overflowFlags = #arith.overflow<none>}> : (i32, i32) -> i32
+E     %209 = "tensor.empty"() : () -> tensor<4x1xi32>
+E     %210 = "linalg.fill"(%208, %209) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg26: i32, %arg27: i32):
+E       "linalg.yield"(%arg26) : (i32) -> ()
+E     }) : (i32, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %211 = "tt.splat"(%208) : (i32) -> tensor<4x1xi32>
+E     %212 = "arith.addi"(%211, %158) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi32>, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %213 = "arith.muli"(%212, %26) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi32>, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %214 = "arith.extsi"(%213) : (tensor<4x1xi32>) -> tensor<4x1xi64>
+E     %215 = "tensor.empty"() : () -> tensor<4x1xi64>
+E     %216 = "linalg.fill"(%207, %215) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg24: i64, %arg25: i64):
+E       "linalg.yield"(%arg24) : (i64) -> ()
+E     }) : (i64, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %217 = "tt.splat"(%207) : (i64) -> tensor<4x1xi64>
+E     %218 = "arith.addi"(%217, %214) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi64>, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %219 = "arith.extsi"(%162) : (tensor<1x128xi32>) -> tensor<1x128xi64>
+E     %220 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %221 = "tensor.collapse_shape"(%218) <{reassociation = [[0, 1]]}> : (tensor<4x1xi64>) -> tensor<4xi64>
+E     %222 = "linalg.broadcast"(%221, %220) <{dimensions = array<i64: 1>}> ({
+E     ^bb0(%arg22: i64, %arg23: i64):
+E       "linalg.yield"(%arg22) : (i64) -> ()
+E     }) : (tensor<4xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %223 = "tt.broadcast"(%218) : (tensor<4x1xi64>) -> tensor<4x128xi64>
+E     %224 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %225 = "tensor.collapse_shape"(%219) <{reassociation = [[0, 1]]}> : (tensor<1x128xi64>) -> tensor<128xi64>
+E     %226 = "linalg.broadcast"(%225, %224) <{dimensions = array<i64: 0>}> ({
+E     ^bb0(%arg20: i64, %arg21: i64):
+E       "linalg.yield"(%arg20) : (i64) -> ()
+E     }) : (tensor<128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %227 = "tt.broadcast"(%219) : (tensor<1x128xi64>) -> tensor<4x128xi64>
+E     %228 = "arith.addi"(%223, %227) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     "scf.yield"(%228) : (tensor<4x128xi64>) -> ()
+E   }, {
+E     %188 = "arith.muli"(%72, %27) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %189 = "arith.addi"(%140, %188) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %190 = "arith.muli"(%158, %26) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi32>, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %191 = "arith.extsi"(%190) : (tensor<4x1xi32>) -> tensor<4x1xi64>
+E     %192 = "tensor.empty"() : () -> tensor<4x1xi64>
+E     %193 = "linalg.fill"(%189, %192) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg18: i64, %arg19: i64):
+E       "linalg.yield"(%arg18) : (i64) -> ()
+E     }) : (i64, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %194 = "tt.splat"(%189) : (i64) -> tensor<4x1xi64>
+E     %195 = "arith.addi"(%194, %191) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi64>, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %196 = "arith.extsi"(%162) : (tensor<1x128xi32>) -> tensor<1x128xi64>
+E     %197 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %198 = "tensor.collapse_shape"(%195) <{reassociation = [[0, 1]]}> : (tensor<4x1xi64>) -> tensor<4xi64>
+E     %199 = "linalg.broadcast"(%198, %197) <{dimensions = array<i64: 1>}> ({
+E     ^bb0(%arg16: i64, %arg17: i64):
+E       "linalg.yield"(%arg16) : (i64) -> ()
+E     }) : (tensor<4xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %200 = "tt.broadcast"(%195) : (tensor<4x1xi64>) -> tensor<4x128xi64>
+E     %201 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %202 = "tensor.collapse_shape"(%196) <{reassociation = [[0, 1]]}> : (tensor<1x128xi64>) -> tensor<128xi64>
+E     %203 = "linalg.broadcast"(%202, %201) <{dimensions = array<i64: 0>}> ({
+E     ^bb0(%arg14: i64, %arg15: i64):
+E       "linalg.yield"(%arg14) : (i64) -> ()
+E     }) : (tensor<128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %204 = "tt.broadcast"(%196) : (tensor<1x128xi64>) -> tensor<4x128xi64>
+E     %205 = "arith.addi"(%200, %204) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     "scf.yield"(%205) : (tensor<4x128xi64>) -> ()
+E   }) {MetaUse} : (i1) -> tensor<4x128xi64>
+E   encountered AddPtrOp produced by unsupported operation
+E   UNREACHABLE executed at /opt/agent_1751872158640/workspace/j_H6RlRMam/triton-ascend/ascend/triton-adapter/lib/TritonToLinalg/BlockPtrAnalysis.cpp:484!
+E   PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+E   Stack dump:
+E   0.	Program arguments: /usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/triton-adapter-opt /tmp/tmpecr8vkma/kernel.ttir.mlir "--discrete-mask-access-conversion=compile-on-910-95=False force-simt-template=False" --triton-to-annotation "--triton-to-unstructure=compile-on-910-95=False force-simt-template=False" --triton-to-hivm --triton-to-hfusion --triton-to-llvm --bubble-up-operation "--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False enable-select-analysis=False compile-on-910-95=False" -o /tmp/tmpecr8vkma/kernel.ttadapter.mlir
+E   ///------------------[ERROR][Triton][END]------------------
+------------------------------------------------------------------------------------------------------------------------------------------------- Captured stdout call -------------------------------------------------------------------------------------------------------------------------------------------------
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+______________________________________________________________________________________________________________________________________ test_batch_layer_offsets_beyond_eight_gib _______________________________________________________________________________________________________________________________________
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/compiler/compiler.py:310: in compile
+    next_module = compile_ir(module, metadata)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/compiler.py:767: in <lambda>
+    stages["ttadapter"] = lambda src, metadata: ttir_to_linalg(
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/compiler.py:135: in ttir_to_linalg
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['/usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/triton-adapter-opt', '/tmp/tmpbhhkfpw7/kernel.ttir.mlir', '--discrete-mask-access-conversion=compile-on-910-95=False force-simt-template=False', '--triton-to-annotation', '--triton-to-unstructure=compile-on-910-95=False force-simt-template=False', '--triton-to-hivm', '--triton-to-hfusion', '--triton-to-llvm', '--bubble-up-operation', '--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False enable-select-analysis=False compile-on-910-95=False', '-o', '/tmp/tmpbhhkfpw7/kernel.ttadapter.mlir']' died with <Signals.SIGABRT: 6>.
+
+During handling of the above exception, another exception occurred:
+project_regression/test_original_gdn_batch.py:192: in test_batch_layer_offsets_beyond_eight_gib
+    layout.commit([(low, ids, offsets, counts), (upper, ids, offsets, counts)])
+/usr/local/python3.11.14/lib/python3.11/site-packages/torch/utils/_contextlib.py:120: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+ascend_optimizer/project_sources/gdn_recover_batch.py:154: in commit
+    _batch_commit[(len(entries), batch, pieces)](
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/runtime/jit.py:353: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/runtime/jit.py:660: in run
+    kernel = self.compile(
+/usr/local/python3.11.14/lib/python3.11/site-packages/triton/compiler/compiler.py:320: in compile
+    raise MLIRCompilationError(stage_name, error_detail)
+E   triton.compiler.errors.MLIRCompilationError: 
+E   ///------------------[ERROR][Triton][BEG]------------------
+E   [ConvertTritonIRToLinalgIR] encounters error:
+E   %176 = "scf.if"(%175) ({
+E     %210 = "arith.muli"(%76, %33) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %211 = "arith.addi"(%120, %210) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %212 = "arith.subi"(%113, %32) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %213 = "arith.extsi"(%162) : (tensor<4x1xi32>) -> tensor<4x1xi64>
+E     %214 = "tensor.empty"() : () -> tensor<4x1xi64>
+E     %215 = "linalg.fill"(%212, %214) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg26: i64, %arg27: i64):
+E       "linalg.yield"(%arg26) : (i64) -> ()
+E     }) : (i64, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %216 = "tt.splat"(%212) : (i64) -> tensor<4x1xi64>
+E     %217 = "arith.addi"(%216, %213) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi64>, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %218 = "arith.muli"(%217, %31) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi64>, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %219 = "tensor.empty"() : () -> tensor<4x1xi64>
+E     %220 = "linalg.fill"(%211, %219) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg24: i64, %arg25: i64):
+E       "linalg.yield"(%arg24) : (i64) -> ()
+E     }) : (i64, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %221 = "tt.splat"(%211) : (i64) -> tensor<4x1xi64>
+E     %222 = "arith.addi"(%221, %218) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi64>, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %223 = "arith.extsi"(%166) : (tensor<1x128xi32>) -> tensor<1x128xi64>
+E     %224 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %225 = "tensor.collapse_shape"(%222) <{reassociation = [[0, 1]]}> : (tensor<4x1xi64>) -> tensor<4xi64>
+E     %226 = "linalg.broadcast"(%225, %224) <{dimensions = array<i64: 1>}> ({
+E     ^bb0(%arg22: i64, %arg23: i64):
+E       "linalg.yield"(%arg22) : (i64) -> ()
+E     }) : (tensor<4xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %227 = "tt.broadcast"(%222) : (tensor<4x1xi64>) -> tensor<4x128xi64>
+E     %228 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %229 = "tensor.collapse_shape"(%223) <{reassociation = [[0, 1]]}> : (tensor<1x128xi64>) -> tensor<128xi64>
+E     %230 = "linalg.broadcast"(%229, %228) <{dimensions = array<i64: 0>}> ({
+E     ^bb0(%arg20: i64, %arg21: i64):
+E       "linalg.yield"(%arg20) : (i64) -> ()
+E     }) : (tensor<128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %231 = "tt.broadcast"(%223) : (tensor<1x128xi64>) -> tensor<4x128xi64>
+E     %232 = "arith.addi"(%227, %231) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     "scf.yield"(%232) : (tensor<4x128xi64>) -> ()
+E   }, {
+E     %192 = "arith.muli"(%76, %33) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %193 = "arith.addi"(%144, %192) <{overflowFlags = #arith.overflow<none>}> : (i64, i64) -> i64
+E     %194 = "arith.muli"(%162, %27) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi32>, tensor<4x1xi32>) -> tensor<4x1xi32>
+E     %195 = "arith.extsi"(%194) : (tensor<4x1xi32>) -> tensor<4x1xi64>
+E     %196 = "tensor.empty"() : () -> tensor<4x1xi64>
+E     %197 = "linalg.fill"(%193, %196) <{operandSegmentSizes = array<i32: 1, 1>}> ({
+E     ^bb0(%arg18: i64, %arg19: i64):
+E       "linalg.yield"(%arg18) : (i64) -> ()
+E     }) : (i64, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %198 = "tt.splat"(%193) : (i64) -> tensor<4x1xi64>
+E     %199 = "arith.addi"(%198, %195) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x1xi64>, tensor<4x1xi64>) -> tensor<4x1xi64>
+E     %200 = "arith.extsi"(%166) : (tensor<1x128xi32>) -> tensor<1x128xi64>
+E     %201 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %202 = "tensor.collapse_shape"(%199) <{reassociation = [[0, 1]]}> : (tensor<4x1xi64>) -> tensor<4xi64>
+E     %203 = "linalg.broadcast"(%202, %201) <{dimensions = array<i64: 1>}> ({
+E     ^bb0(%arg16: i64, %arg17: i64):
+E       "linalg.yield"(%arg16) : (i64) -> ()
+E     }) : (tensor<4xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %204 = "tt.broadcast"(%199) : (tensor<4x1xi64>) -> tensor<4x128xi64>
+E     %205 = "tensor.empty"() : () -> tensor<4x128xi64>
+E     %206 = "tensor.collapse_shape"(%200) <{reassociation = [[0, 1]]}> : (tensor<1x128xi64>) -> tensor<128xi64>
+E     %207 = "linalg.broadcast"(%206, %205) <{dimensions = array<i64: 0>}> ({
+E     ^bb0(%arg14: i64, %arg15: i64):
+E       "linalg.yield"(%arg14) : (i64) -> ()
+E     }) : (tensor<128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     %208 = "tt.broadcast"(%200) : (tensor<1x128xi64>) -> tensor<4x128xi64>
+E     %209 = "arith.addi"(%204, %208) <{overflowFlags = #arith.overflow<none>}> : (tensor<4x128xi64>, tensor<4x128xi64>) -> tensor<4x128xi64>
+E     "scf.yield"(%209) : (tensor<4x128xi64>) -> ()
+E   }) {MetaUse} : (i1) -> tensor<4x128xi64>
+E   encountered AddPtrOp produced by unsupported operation
+E   UNREACHABLE executed at /opt/agent_1751872158640/workspace/j_H6RlRMam/triton-ascend/ascend/triton-adapter/lib/TritonToLinalg/BlockPtrAnalysis.cpp:484!
+E   PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+E   Stack dump:
+E   0.	Program arguments: /usr/local/python3.11.14/lib/python3.11/site-packages/triton/backends/ascend/triton-adapter-opt /tmp/tmpbhhkfpw7/kernel.ttir.mlir "--discrete-mask-access-conversion=compile-on-910-95=False force-simt-template=False" --triton-to-annotation "--triton-to-unstructure=compile-on-910-95=False force-simt-template=False" --triton-to-hivm --triton-to-hfusion --triton-to-llvm --bubble-up-operation "--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False enable-select-analysis=False compile-on-910-95=False" -o /tmp/tmpbhhkfpw7/kernel.ttadapter.mlir
+E   ///------------------[ERROR][Triton][END]------------------
+------------------------------------------------------------------------------------------------------------------------------------------------- Captured stdout call -------------------------------------------------------------------------------------------------------------------------------------------------
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+[WARNING] Please DO NOT tune args ['enable_fp_fusion']!
+=============================================================================================================================================== short test summary info ================================================================================================================================================
+FAILED project_regression/test_original_gdn_batch.py::test_fused_commit_matches_per_layer_across_shared_groups[geometry0] - triton.compiler.errors.MLIRCompilationError: 
+FAILED project_regression/test_original_gdn_batch.py::test_fused_commit_matches_per_layer_across_shared_groups[geometry1] - triton.compiler.errors.MLIRCompilationError: 
+FAILED project_regression/test_original_gdn_batch.py::test_fused_commit_matches_per_layer_across_shared_groups[geometry2] - triton.compiler.errors.MLIRCompilationError: 
+FAILED project_regression/test_original_gdn_batch.py::test_context_commits_device_sampled_tokens_in_forward_row_order[True] - triton.compiler.errors.MLIRCompilationError: 
+FAILED project_regression/test_original_gdn_batch.py::test_batch_layer_offsets_beyond_eight_gib - triton.compiler.errors.MLIRCompilationError: 
+5 failed, 62 passed in 265.93s (0:04:25)
+path string is NULLpath string is NULL

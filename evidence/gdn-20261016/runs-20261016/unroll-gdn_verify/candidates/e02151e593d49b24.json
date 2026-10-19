@@ -1,0 +1,9 @@
+{
+  "id": "e02151e593d49b24",
+  "source_sha256": "e02151e593d49b24f6ae42c103ea916abffc1e919a6bab7cb3c4253b6fcde641",
+  "config": {
+    "value_tile": 64
+  },
+  "reason": "Isolate the variable. value_tile=64 without unroll is exactly the same tile width the baseline template picks for the benchmark shapes (kd=128 -> tile=64), and uses the original loop unchanged. This should be near-identical to baseline; it confirms whether the template's explicit setting matters and provides a clean reference point before any further exploration.",
+  "created_at": "2026-10-16T00:15:32.952815+00:00"
+}

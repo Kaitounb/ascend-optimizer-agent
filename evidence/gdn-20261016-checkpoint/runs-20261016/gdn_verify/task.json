@@ -1,0 +1,100 @@
+{
+  "dtypes": [
+    "float32",
+    "bfloat16"
+  ],
+  "validation_shapes": [
+    [
+      6,
+      6,
+      17,
+      33,
+      3
+    ],
+    [
+      5,
+      4,
+      96,
+      64,
+      6
+    ],
+    [
+      1,
+      2,
+      256,
+      256,
+      1
+    ]
+  ],
+  "benchmark_shapes": [
+    [
+      1,
+      48,
+      128,
+      128,
+      4
+    ],
+    [
+      8,
+      48,
+      128,
+      128,
+      4
+    ],
+    [
+      32,
+      48,
+      128,
+      128,
+      4
+    ]
+  ],
+  "baseline_config": {
+    "value_tile": 0
+  },
+  "search_configs": [
+    {
+      "value_tile": 16
+    },
+    {
+      "value_tile": 32
+    },
+    {
+      "value_tile": 64
+    },
+    {
+      "value_tile": 128
+    }
+  ],
+  "source_origin": {
+    "repository": "vllm-project/vllm-ascend",
+    "project_head": "622725cd44aa47186dc1f1c9f08485e9013fff7a",
+    "files": {
+      "gdn_recover.py": {
+        "path": "vllm_ascend/ops/triton/mamba/gdn_recover.py",
+        "sha256": "3823d73346f88aad94b146e3b16f1b4ab8f558d74f62742cd142f8f746f74b16"
+      },
+      "gdn_recover_batch.py": {
+        "path": "vllm_ascend/ops/triton/mamba/gdn_recover_batch.py",
+        "sha256": "bc9fb03c96c45dce281a50ee5d97101bed517ff8e8a10a789db21d71f0094755"
+      }
+    }
+  },
+  "min_decisions": 3,
+  "qk_heads": "heads/3 when divisible by 3, otherwise heads/2; production 48 value heads / 16 QK heads",
+  "metadata": "Padded slots, reordered and null IDs, mixed query lengths; prefix counts are processed input counts",
+  "operator": "gdn_verify",
+  "description": "Project GDN checkpoint verification and replay recording",
+  "schema_version": 1,
+  "seed": 20261015,
+  "measurement": {
+    "warmup": 4,
+    "iterations": 5,
+    "rounds": 9
+  },
+  "acceptance": {
+    "min_speedup": 1.02,
+    "min_case_speedup": 0.98,
+    "bootstrap_samples": 2000
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "status": "complete",
+  "planner": "search",
+  "best": "9b87540218c526d1",
+  "baseline": "03438c33bc541d77",
+  "promotions": 1,
+  "independent_improvement_established": true,
+  "final_comparison": {
+    "evaluation_id": "69109ef85d3c4d7b9ab78f9dd40f42e3",
+    "evidence_file": "/opt/atomgit/ascend-optimizer-agent/runs/rms_norm/evaluations/69109ef85d3c4d7b9ab78f9dd40f42e3.json",
+    "speedup_geomean": 2.038681312664883,
+    "bootstrap_95_interval": [
+      2.0159759228572853,
+      2.0842885309741233
+    ],
+    "per_case": [
+      {
+        "case": {
+          "shape": [
+            32,
+            1024
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 2.160171897156218,
+        "baseline_us": 243.07550191879272,
+        "candidate_us": 112.07950115203857
+      },
+      {
+        "case": {
+          "shape": [
+            32,
+            1024
+          ],
+          "dtype": "float16"
+        },
+        "speedup": 2.5251613292467034,
+        "baseline_us": 278.0604958534241,
+        "candidate_us": 111.26949787139893
+      },
+      {
+        "case": {
+          "shape": [
+            128,
+            4096
+          ],
+          "dtype": "float32"
+        },
+        "speedup": 1.5594167869523285,
+        "baseline_us": 172.11000323295593,
+        "candidate_us": 110.77200174331665
+      },
+      {
+        "case": {
+          "shape": [
+            128,
+            4096
+          ],
+          "dtype": "float16"
+        },
+        "speedup": 2.0307558894311506,
+        "baseline_us": 223.1165051460266,
+        "candidate_us": 109.23100113868713
+      }
+    ],
+    "accepted": true,
+    "reason": "accepted",
+    "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+  },
+  "finished_at": "2026-10-15T08:22:32.356720+00:00",
+  "model_text": null,
+  "profile": {
+    "ok": true,
+    "result": {
+      "trace": "/opt/atomgit/ascend-optimizer-agent/runs/rms_norm/profiles/9b87540218c526d1-ec6c2e9e/trace.json",
+      "summary": {
+        "events": 93,
+        "categories": {
+          "cpu_op": 5,
+          "dequeue": 5,
+          "async_task_queue": 10,
+          "enqueue": 5,
+          "uncategorized": 48,
+          "HostToDevice": 10,
+          "async_npu": 10
+        },
+        "longest_complete_events": [
+          {
+            "name": "Free",
+            "category": "uncategorized",
+            "process": 6680480,
+            "thread": 3,
+            "trace_duration_us": 131.52
+          },
+          {
+            "name": "Free",
+            "category": "uncategorized",
+            "process": 6680480,
+            "thread": 3,
+            "trace_duration_us": 116.944
+          },
+          {
+            "name": "Free",
+            "category": "uncategorized",
+            "process": 6680480,
+            "thread": 3,
+            "trace_duration_us": 116.76
+          },
+          {
+            "name": "Free",
+            "category": "uncategorized",
+            "process": 6680480,
+            "thread": 3,
+            "trace_duration_us": 99.72
+          },
+          {
+            "name": "Dequeue@kernel",
+            "category": "dequeue",
+            "process": 6523,
+            "thread": 6554,
+            "trace_duration_us": 58.72
+          },
+          {
+            "name": "kernel",
+            "category": "cpu_op",
+            "process": 6523,
+            "thread": 6523,
+            "trace_duration_us": 26.58
+          },
+          {
+            "name": "Enqueue@kernel",
+            "category": "enqueue",
+            "process": 6523,
+            "thread": 6523,
+            "trace_duration_us": 20.16
+          },
+          {
+            "name": "Dequeue@kernel",
+            "category": "dequeue",
+            "process": 6523,
+            "thread": 6554,
+            "trace_duration_us": 12.92
+          },
+          {
+            "name": "kernel",
+            "category": "cpu_op",
+            "process": 6523,
+            "thread": 6523,
+            "trace_duration_us": 12.88
+          },
+          {
+            "name": "kernel",
+            "category": "cpu_op",
+            "process": 6523,
+            "thread": 6523,
+            "trace_duration_us": 12.5
+          },
+          {
+            "name": "Dequeue@kernel",
+            "category": "dequeue",
+            "process": 6523,
+            "thread": 6554,
+            "trace_duration_us": 10.28
+          },
+          {
+            "name": "kernel",
+            "category": "cpu_op",
+            "process": 6523,
+            "thread": 6523,
+            "trace_duration_us": 10.18
+          },
+          {
+            "name": "kernel",
+            "category": "cpu_op",
+            "process": 6523,
+            "thread": 6523,
+            "trace_duration_us": 9.84
+          },
+          {
+            "name": "Enqueue@kernel",
+            "category": "enqueue",
+            "process": 6523,
+            "thread": 6523,
+            "trace_duration_us": 9.65
+          },
+          {
+            "name": "Enqueue@kernel",
+            "category": "enqueue",
+            "process": 6523,
+            "thread": 6523,
+            "trace_duration_us": 8.99
+          },
+          {
+            "name": "kernel",
+            "category": "uncategorized",
+            "process": 6679968,
+            "thread": 47,
+            "trace_duration_us": 8.144
+          },
+          {
+            "name": "Computing",
+            "category": "uncategorized",
+            "process": 6680480,
+            "thread": 2,
+            "trace_duration_us": 8.144
+          },
+          {
+            "name": "Enqueue@kernel",
+            "category": "enqueue",
+            "process": 6523,
+            "thread": 6523,
+            "trace_duration_us": 7.91
+          },
+          {
+            "name": "Dequeue@kernel",
+            "category": "dequeue",
+            "process": 6523,
+            "thread": 6554,
+            "trace_duration_us": 7.67
+          },
+          {
+            "name": "Enqueue@kernel",
+            "category": "enqueue",
+            "process": 6523,
+            "thread": 6523,
+            "trace_duration_us": 7.51
+          }
+        ]
+      },
+      "invocations": 5,
+      "note": "Trace durations include profiling overhead and are not acceptance timings; inspect categories/processes to distinguish CPU from NPU."
+    }
+  }
+}

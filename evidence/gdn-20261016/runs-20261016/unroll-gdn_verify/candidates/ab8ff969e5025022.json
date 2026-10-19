@@ -1,0 +1,9 @@
+{
+  "id": "ab8ff969e5025022",
+  "source_sha256": "ab8ff969e502502234e233218698583864a18cf4a13ae3d5535b6a02d0856495",
+  "config": {
+    "value_tile": 32
+  },
+  "reason": "Complete the sweep at tile=32 without unroll to separate the effect of unroll from tile width. tile=32+unroll gave 0.79x; if plain tile=32 is also ~0.79x, the regression is purely from halving the tile (extra state reloads), not from unroll. tile=32 has a smaller UB footprint, which could still be a win on the small-batch case where occupancy matters. Expected: likely a regression, but it bounds the search cleanly.",
+  "created_at": "2026-10-16T00:16:54.982213+00:00"
+}

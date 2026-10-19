@@ -1,0 +1,9 @@
+{
+  "id": "dab13b325608c5b1",
+  "source_sha256": "dab13b325608c5b1ab9b71e14283988e44103fbd0e63b079e2d857354897e7c8",
+  "config": {
+    "value_tile": 128
+  },
+  "reason": "BV=128 covers the full VD=128 in a single value tile, eliminating the redundant K/decay work duplicated across value tiles and removing the tile==0 branch divergence. Larger contiguous stores but heavier per-program tile [128,128].",
+  "created_at": "2026-10-15T16:26:06.565859+00:00"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "1066932f4817f982",
+  "source_sha256": "1066932f4817f982432eb4494cf1f7f6b014070265a6e53b6d588ca7d2b6f43b",
+  "config": {
+    "unroll": true,
+    "value_tile": 32
+  },
+  "reason": "Reduce BV to 32 while keeping unroll. The 64-wide state tile [64,128] fp32 plus static unrolling overflowed UB. A 32-wide tile halves the state/correction buffer, which should fit while unrolling still removes loop control. Tile count doubles (2 tiles per head) but each tile is smaller and more parallel-friendly.",
+  "created_at": "2026-10-16T00:11:19.211567+00:00"
+}

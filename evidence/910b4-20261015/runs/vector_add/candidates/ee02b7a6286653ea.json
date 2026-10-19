@@ -1,0 +1,10 @@
+{
+  "id": "ee02b7a6286653ea",
+  "source_sha256": "ee02b7a6286653ea64a260c98a1d8cabb5f95b570c49423d324ae1035cbd6add",
+  "config": {
+    "block": 1024,
+    "unroll": 4
+  },
+  "reason": "Search hypothesis: {\"block\": 1024, \"unroll\": 4}",
+  "created_at": "2026-10-15T08:20:37.032742+00:00"
+}

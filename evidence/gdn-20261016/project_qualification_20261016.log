@@ -1,0 +1,17 @@
+nohup: ignoring input
+SERIAL_STAGE qualify_project.py
+QUALIFICATION_FINISHED {"gdn_commit": {"qualified": false, "reason": "No completed independently improved selection"}, "gdn_verify": {"qualified": false, "reason": "No completed independently improved selection"}}
+CHECKPOINT ascend-gdn-agent-evidence-20261016.zip 386612 1560e14daed9054c6e4a7c6f81b88a67c7cafe1da95edb0f994f347e9d629403
+unroll-gdn_commit complete {'value_tile': 0} 1.0003707705812703 False
+unroll-gdn_verify complete {'value_tile': 0} 0.9971255183303701 False
+SERIAL_STAGE build_project_candidate.py
+PROJECT_CANDIDATE {} /opt/atomgit/ascend-optimizer-agent/runs-20261016/project-integration
+CHECKPOINT ascend-gdn-agent-evidence-20261016.zip 394491 85fe901bf124ef743f71f3d65476c6effa819a21264bb0631032b786bf39a019
+unroll-gdn_commit complete {'value_tile': 0} 1.0003707705812703 False
+unroll-gdn_verify complete {'value_tile': 0} 0.9971255183303701 False
+SERIAL_STAGE validate_project_integration.py
+PROJECT_INTEGRATION_FINISHED {"configs": {}, "public_api_benchmarks": {}, "original_project_tests_exit": 0, "release_ready": true}
+CHECKPOINT ascend-gdn-agent-evidence-20261016.zip 395353 313d509aeabed19d609f6dbaf6e7a632801499249be4ea274024fda966120a60
+unroll-gdn_commit complete {'value_tile': 0} 1.0003707705812703 False
+unroll-gdn_verify complete {'value_tile': 0} 0.9971255183303701 False
+ALL_PROJECT_STAGES_FINISHED

@@ -1,0 +1,9 @@
+{
+  "id": "1afe46490ea0a7ce",
+  "source_sha256": "1afe46490ea0a7ced46e176b17f255f5a9ca138ed19bb489a4e79400f6c5d93a",
+  "config": {
+    "value_tile": 32
+  },
+  "reason": "BV=32 without unroll: baseline loop but smaller value tile, more programs. Tests tile effect independent of unroll (unroll was harmful at BV=32).",
+  "created_at": "2026-10-16T00:04:38.518803+00:00"
+}

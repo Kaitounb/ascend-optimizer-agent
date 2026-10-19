@@ -1,0 +1,10 @@
+{
+  "id": "7873a101e5b80f1b",
+  "source_sha256": "7873a101e5b80f1b4379063eb37eaca8244c32f122c6cb827298c157c36a0a0f",
+  "config": {
+    "unroll": true,
+    "value_tile": 64
+  },
+  "reason": "Baseline tile=64 (no unroll) for kd<=128. Test tile=64 with static unroll for W=4: keeps program count same as baseline but removes loop/branch overhead, isolating the effect of unrolling.",
+  "created_at": "2026-10-16T00:04:32.944742+00:00"
+}

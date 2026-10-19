@@ -1,0 +1,10 @@
+{
+  "id": "976e460c7f4a8087",
+  "source_sha256": "976e460c7f4a8087c64c4f6ffd98d9ff54be1d29fc5a2e54c6d62150517ce680",
+  "config": {
+    "block": 4096,
+    "unroll": 4
+  },
+  "reason": "Search hypothesis: {\"block\": 4096, \"unroll\": 4}",
+  "created_at": "2026-10-15T08:20:24.796937+00:00"
+}

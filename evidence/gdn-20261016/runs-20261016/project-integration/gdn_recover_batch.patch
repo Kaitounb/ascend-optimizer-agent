@@ -1,0 +1,23 @@
+--- a/vllm_ascend/ops/triton/mamba/gdn_recover_batch.py
++++ b/vllm_ascend/ops/triton/mamba/gdn_recover_batch.py
+@@ -62,13 +62,17 @@
+         cc = piece * CONV_BLOCK + tl.arange(0, CONV_BLOCK)
+         hh = tl.arange(0, triton.next_power_of_2(HISTORY))
+         mask = (hh[:, None] < HISTORY) & (cc[None, :] < CHANNELS)
++        destination = conv_offset + slot * CS + hh[:, None] * CHANNELS + cc[None, :]
++        # CANN 8.5 cannot lower addptr of an scf.if-yielded offset tensor.
++        # Keep each address and memory access in its originating branch.
+         if length > 0:
+             offset = conv_offset + slot * CS + (length - 1 + hh[:, None]) * CHANNELS + cc[None, :]
++            history = tl.load(ConvBase + offset, mask=mask, other=0)
++            tl.store(ConvBase + destination, history, mask=mask)
+         else:
+             offset = history_offset + slot * HS + hh[:, None] * CHANNELS + cc[None, :]
+-        history = tl.load(ConvBase + offset, mask=mask, other=0)
+-        destination = conv_offset + slot * CS + hh[:, None] * CHANNELS + cc[None, :]
+-        tl.store(ConvBase + destination, history, mask=mask)
++            history = tl.load(ConvBase + offset, mask=mask, other=0)
++            tl.store(ConvBase + destination, history, mask=mask)
+ 
+ 
+ class GDNRecoverBatchLayout:

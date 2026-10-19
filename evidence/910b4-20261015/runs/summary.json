@@ -1,0 +1,1143 @@
+{
+  "vector_add": {
+    "best_config": {
+      "block": 1024,
+      "unroll": 1
+    },
+    "result": {
+      "status": "complete",
+      "planner": "search",
+      "best": "67cf6af05c29790a",
+      "baseline": "f5ae485f0181f746",
+      "promotions": 1,
+      "independent_improvement_established": true,
+      "final_comparison": {
+        "evaluation_id": "597d77aec160479ba3bb4e9314e834cd",
+        "evidence_file": "/opt/atomgit/ascend-optimizer-agent/runs/vector_add/evaluations/597d77aec160479ba3bb4e9314e834cd.json",
+        "speedup_geomean": 1.2306834828441444,
+        "bootstrap_95_interval": [
+          1.2249158370573092,
+          1.2377740146516838
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.0007939706705227,
+            "baseline_us": 103.54250073432922,
+            "candidate_us": 103.28350067138672
+          },
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 0.9998661383273391,
+            "baseline_us": 103.77050042152405,
+            "candidate_us": 104.31849956512451
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.5179881923209577,
+            "baseline_us": 158.09600353240967,
+            "candidate_us": 104.0120005607605
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.5101863942962133,
+            "baseline_us": 156.96499943733215,
+            "candidate_us": 103.93750071525574
+          }
+        ],
+        "accepted": true,
+        "reason": "accepted",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      },
+      "finished_at": "2026-10-15T08:20:51.078300+00:00",
+      "model_text": null,
+      "profile": {
+        "ok": true,
+        "result": {
+          "trace": "/opt/atomgit/ascend-optimizer-agent/runs/vector_add/profiles/67cf6af05c29790a-b6d6ceb6/trace.json",
+          "summary": {
+            "events": 93,
+            "categories": {
+              "cpu_op": 5,
+              "dequeue": 5,
+              "async_task_queue": 10,
+              "enqueue": 5,
+              "uncategorized": 48,
+              "HostToDevice": 10,
+              "async_npu": 10
+            },
+            "longest_complete_events": [
+              {
+                "name": "Free",
+                "category": "uncategorized",
+                "process": 6375328,
+                "thread": 3,
+                "trace_duration_us": 82.264
+              },
+              {
+                "name": "Free",
+                "category": "uncategorized",
+                "process": 6375328,
+                "thread": 3,
+                "trace_duration_us": 68.24
+              },
+              {
+                "name": "Free",
+                "category": "uncategorized",
+                "process": 6375328,
+                "thread": 3,
+                "trace_duration_us": 61.72
+              },
+              {
+                "name": "Free",
+                "category": "uncategorized",
+                "process": 6375328,
+                "thread": 3,
+                "trace_duration_us": 60.52
+              },
+              {
+                "name": "Dequeue@kernel",
+                "category": "dequeue",
+                "process": 6225,
+                "thread": 6256,
+                "trace_duration_us": 55.45
+              },
+              {
+                "name": "kernel",
+                "category": "uncategorized",
+                "process": 6374816,
+                "thread": 47,
+                "trace_duration_us": 44.576
+              },
+              {
+                "name": "Computing",
+                "category": "uncategorized",
+                "process": 6375328,
+                "thread": 2,
+                "trace_duration_us": 44.576
+              },
+              {
+                "name": "kernel",
+                "category": "uncategorized",
+                "process": 6374816,
+                "thread": 47,
+                "trace_duration_us": 42.44
+              },
+              {
+                "name": "Computing",
+                "category": "uncategorized",
+                "process": 6375328,
+                "thread": 2,
+                "trace_duration_us": 42.44
+              },
+              {
+                "name": "kernel",
+                "category": "uncategorized",
+                "process": 6374816,
+                "thread": 47,
+                "trace_duration_us": 42.336
+              },
+              {
+                "name": "Computing",
+                "category": "uncategorized",
+                "process": 6375328,
+                "thread": 2,
+                "trace_duration_us": 42.336
+              },
+              {
+                "name": "kernel",
+                "category": "uncategorized",
+                "process": 6374816,
+                "thread": 47,
+                "trace_duration_us": 39.04
+              },
+              {
+                "name": "Computing",
+                "category": "uncategorized",
+                "process": 6375328,
+                "thread": 2,
+                "trace_duration_us": 39.04
+              },
+              {
+                "name": "kernel",
+                "category": "uncategorized",
+                "process": 6374816,
+                "thread": 47,
+                "trace_duration_us": 38.96
+              },
+              {
+                "name": "Computing",
+                "category": "uncategorized",
+                "process": 6375328,
+                "thread": 2,
+                "trace_duration_us": 38.96
+              },
+              {
+                "name": "kernel",
+                "category": "cpu_op",
+                "process": 6225,
+                "thread": 6225,
+                "trace_duration_us": 26.59
+              },
+              {
+                "name": "Enqueue@kernel",
+                "category": "enqueue",
+                "process": 6225,
+                "thread": 6225,
+                "trace_duration_us": 19.94
+              },
+              {
+                "name": "kernel",
+                "category": "cpu_op",
+                "process": 6225,
+                "thread": 6225,
+                "trace_duration_us": 11.66
+              },
+              {
+                "name": "kernel",
+                "category": "cpu_op",
+                "process": 6225,
+                "thread": 6225,
+                "trace_duration_us": 11.47
+              },
+              {
+                "name": "kernel",
+                "category": "cpu_op",
+                "process": 6225,
+                "thread": 6225,
+                "trace_duration_us": 9.83
+              }
+            ]
+          },
+          "invocations": 5,
+          "note": "Trace durations include profiling overhead and are not acceptance timings; inspect categories/processes to distinguish CPU from NPU."
+        }
+      }
+    },
+    "decisions": [
+      {
+        "candidate_id": "67cf6af05c29790a",
+        "incumbent_before": "f5ae485f0181f746",
+        "best": "67cf6af05c29790a",
+        "evaluation_id": "925894250b7e411bb21d41dac9c96c89",
+        "speedup_geomean": 1.235450726298426,
+        "bootstrap_95_interval": [
+          1.2276664805261177,
+          1.2444962814526357
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 0.9941995471305433,
+            "baseline_us": 100.95499753952026,
+            "candidate_us": 101.54399871826172
+          },
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 0.9902581766025874,
+            "baseline_us": 101.70699954032898,
+            "candidate_us": 102.03250050544739
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.548331253505577,
+            "baseline_us": 157.99800157546997,
+            "candidate_us": 101.624995470047
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.5283254244179327,
+            "baseline_us": 158.10099840164185,
+            "candidate_us": 103.03849577903748
+          }
+        ],
+        "accepted": true,
+        "reason": "accepted",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      },
+      {
+        "candidate_id": "2d068b0ed34b3c06",
+        "incumbent_before": "67cf6af05c29790a",
+        "best": "67cf6af05c29790a",
+        "evaluation_id": "953232a6ecb0463eb48211cbd973be16",
+        "speedup_geomean": 0.9990967677894546,
+        "bootstrap_95_interval": [
+          0.9942804048761064,
+          1.0063933413012336
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.000401494149542,
+            "baseline_us": 99.49999749660492,
+            "candidate_us": 99.71700012683868
+          },
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 0.9919795455744201,
+            "baseline_us": 101.15950107574463,
+            "candidate_us": 101.96149945259094
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.0000340533453764,
+            "baseline_us": 103.53000164031982,
+            "candidate_us": 102.91949510574341
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.0040107852275484,
+            "baseline_us": 104.30700182914734,
+            "candidate_us": 104.05799746513367
+          }
+        ],
+        "accepted": false,
+        "reason": "improvement_not_established",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      },
+      {
+        "candidate_id": "2d180a39edc32c43",
+        "incumbent_before": "67cf6af05c29790a",
+        "best": "67cf6af05c29790a",
+        "evaluation_id": "273eca0bc69e4e82949412cc040a3cfa",
+        "speedup_geomean": 1.0011765853427106,
+        "bootstrap_95_interval": [
+          0.9944292922455972,
+          1.0064074065171502
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.0003380543952982,
+            "baseline_us": 98.78399968147278,
+            "candidate_us": 99.09000098705292
+          },
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.0008655199469727,
+            "baseline_us": 99.69099760055542,
+            "candidate_us": 99.41850006580353
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.0030277473701132,
+            "baseline_us": 103.51549983024597,
+            "candidate_us": 103.14599871635437
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.0004773728982443,
+            "baseline_us": 104.86000180244446,
+            "candidate_us": 104.83649969100952
+          }
+        ],
+        "accepted": false,
+        "reason": "improvement_not_established",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      },
+      {
+        "candidate_id": "976e460c7f4a8087",
+        "incumbent_before": "67cf6af05c29790a",
+        "best": "67cf6af05c29790a",
+        "evaluation_id": "3bc809f2febb483aa2e95c6d19c13581",
+        "speedup_geomean": 1.0001682247262327,
+        "bootstrap_95_interval": [
+          0.9949062742237584,
+          1.0055715615327336
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 0.9915792050926304,
+            "baseline_us": 100.68449974060059,
+            "candidate_us": 101.46099925041199
+          },
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 0.9983174804749875,
+            "baseline_us": 101.4835000038147,
+            "candidate_us": 102.6379942893982
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.007054691022179,
+            "baseline_us": 104.44549918174744,
+            "candidate_us": 103.90250086784363
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.0037904715957173,
+            "baseline_us": 104.46949601173401,
+            "candidate_us": 104.23700213432312
+          }
+        ],
+        "accepted": false,
+        "reason": "improvement_not_established",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      },
+      {
+        "candidate_id": "ee02b7a6286653ea",
+        "incumbent_before": "67cf6af05c29790a",
+        "best": "67cf6af05c29790a",
+        "evaluation_id": "65534cdf603f49dcb78554d056393c92",
+        "speedup_geomean": 1.000802923693425,
+        "bootstrap_95_interval": [
+          0.9932713731819413,
+          1.0044347246453185
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 0.9985366477877603,
+            "baseline_us": 100.5549967288971,
+            "candidate_us": 100.4984974861145
+          },
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.0008102805368695,
+            "baseline_us": 100.66699981689453,
+            "candidate_us": 101.2209951877594
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.0036108615043353,
+            "baseline_us": 102.12649703025818,
+            "candidate_us": 102.0579993724823
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.0002605535549427,
+            "baseline_us": 103.78050208091736,
+            "candidate_us": 103.62899899482727
+          }
+        ],
+        "accepted": false,
+        "reason": "improvement_not_established",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      }
+    ],
+    "failures": [
+      {
+        "tool": "compile_kernel",
+        "arguments": {
+          "candidate_id": "e77d01e34edb9c7a"
+        },
+        "error": "\n///------------------[ERROR][Triton][BEG]------------------\n[ConvertLinalgRToBinary] encounters error:\nloc(\"/tmp/tmpmis04kn_/kernel.ttadapter.mlir\":1:1): error: Failed to run BiShengHIR pipeline\n\nloc(\"/tmp/tmpmis04kn_/kernel.ttadapter.mlir\":2:3): error: ub overflow, requires 2097152 bits while 1572864 bits available! (possible reason: tiling basic block is too large or block number is more than what user expect due to multi-buffer feature is enabled and some ops need extra local buffer.)\nloc(\"/tmp/tmpmis04kn_/kernel.ttadapter.mlir\":1:1): error: Failed to run BiShengHIR pipeline\n\nloc(\"/tmp/tmpmis04kn_/kernel.ttadapter.mlir\":2:3): error: ub overflow, requires 2097152 bits while 1572864 bits available! (possible reason: tiling basic block is too large or block number is more than what user expect due to multi-buffer feature is enabled and some ops need extra local buffer.)\nloc(\"/tmp/tmpmis04kn_/kernel.ttadapter.mlir\":1:1): error: Failed to run BiShengHIR pipeline\n\nloc(\"/tmp/tmpmis04kn_/kernel.ttadapter.mlir\":2:3): error: ub overflow, requires 2097152 bits while 1572864 bits available! (possible reason: tiling basic block is too large or block number is more than what user expect due to multi-buffer feature is enabled and some ops need extra local buffer.)\nloc(\"/tmp/tmpmis04kn_/kernel.ttadapter.mlir\":1:1): error: Failed to run BiShengHIR pipeline\n\nloc(\"/tmp/tmpmis04kn_/kernel.ttadapter.mlir\":2:3): error: ub overflow, requires 2097152 bits while 1572864 bits available! (possible reason: tiling basic block is too large or block number is more than what user expect due to multi-buffer feature is enabled and some ops need extra local buffer.)\nloc(\"/tmp/tmpmis04kn_/kernel.ttadapter.mlir\":1:1): error: Failed to run BiShengHIR pipeline\n\nloc(\"/tmp/tmpmis04kn_/kernel.ttadapter.mlir\":2:3): error: ub overflow, requires 2097152 bits while 1572864 bits available! (possible reason: tiling basic block is too large or block number is more than what user expect due to multi-buffer feature is enabled and some ops need extra local buffer.)\n[ERROR] Failed to run BiShengIR pipeline\n\n\n[INFO]: The compiled kernel cache is in /opt/atomgit/.triton/cache/0mupD17Jdv_Ur_wHE8ABTbdopQ8rFcpiQB1aaRH1rcM\n\n///------------------[ERROR][Triton][END]------------------\n"
+      },
+      {
+        "tool": "profile_kernel",
+        "arguments": {
+          "candidate_id": "67cf6af05c29790a"
+        },
+        "error": "'profile' object has no attribute 'key_averages'"
+      }
+    ]
+  },
+  "rms_norm": {
+    "best_config": {
+      "implementation": "triton",
+      "rows": 1
+    },
+    "result": {
+      "status": "complete",
+      "planner": "search",
+      "best": "9b87540218c526d1",
+      "baseline": "03438c33bc541d77",
+      "promotions": 1,
+      "independent_improvement_established": true,
+      "final_comparison": {
+        "evaluation_id": "69109ef85d3c4d7b9ab78f9dd40f42e3",
+        "evidence_file": "/opt/atomgit/ascend-optimizer-agent/runs/rms_norm/evaluations/69109ef85d3c4d7b9ab78f9dd40f42e3.json",
+        "speedup_geomean": 2.038681312664883,
+        "bootstrap_95_interval": [
+          2.0159759228572853,
+          2.0842885309741233
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                32,
+                1024
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 2.160171897156218,
+            "baseline_us": 243.07550191879272,
+            "candidate_us": 112.07950115203857
+          },
+          {
+            "case": {
+              "shape": [
+                32,
+                1024
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 2.5251613292467034,
+            "baseline_us": 278.0604958534241,
+            "candidate_us": 111.26949787139893
+          },
+          {
+            "case": {
+              "shape": [
+                128,
+                4096
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.5594167869523285,
+            "baseline_us": 172.11000323295593,
+            "candidate_us": 110.77200174331665
+          },
+          {
+            "case": {
+              "shape": [
+                128,
+                4096
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 2.0307558894311506,
+            "baseline_us": 223.1165051460266,
+            "candidate_us": 109.23100113868713
+          }
+        ],
+        "accepted": true,
+        "reason": "accepted",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      },
+      "finished_at": "2026-10-15T08:22:32.356720+00:00",
+      "model_text": null,
+      "profile": {
+        "ok": true,
+        "result": {
+          "trace": "/opt/atomgit/ascend-optimizer-agent/runs/rms_norm/profiles/9b87540218c526d1-ec6c2e9e/trace.json",
+          "summary": {
+            "events": 93,
+            "categories": {
+              "cpu_op": 5,
+              "dequeue": 5,
+              "async_task_queue": 10,
+              "enqueue": 5,
+              "uncategorized": 48,
+              "HostToDevice": 10,
+              "async_npu": 10
+            },
+            "longest_complete_events": [
+              {
+                "name": "Free",
+                "category": "uncategorized",
+                "process": 6680480,
+                "thread": 3,
+                "trace_duration_us": 131.52
+              },
+              {
+                "name": "Free",
+                "category": "uncategorized",
+                "process": 6680480,
+                "thread": 3,
+                "trace_duration_us": 116.944
+              },
+              {
+                "name": "Free",
+                "category": "uncategorized",
+                "process": 6680480,
+                "thread": 3,
+                "trace_duration_us": 116.76
+              },
+              {
+                "name": "Free",
+                "category": "uncategorized",
+                "process": 6680480,
+                "thread": 3,
+                "trace_duration_us": 99.72
+              },
+              {
+                "name": "Dequeue@kernel",
+                "category": "dequeue",
+                "process": 6523,
+                "thread": 6554,
+                "trace_duration_us": 58.72
+              },
+              {
+                "name": "kernel",
+                "category": "cpu_op",
+                "process": 6523,
+                "thread": 6523,
+                "trace_duration_us": 26.58
+              },
+              {
+                "name": "Enqueue@kernel",
+                "category": "enqueue",
+                "process": 6523,
+                "thread": 6523,
+                "trace_duration_us": 20.16
+              },
+              {
+                "name": "Dequeue@kernel",
+                "category": "dequeue",
+                "process": 6523,
+                "thread": 6554,
+                "trace_duration_us": 12.92
+              },
+              {
+                "name": "kernel",
+                "category": "cpu_op",
+                "process": 6523,
+                "thread": 6523,
+                "trace_duration_us": 12.88
+              },
+              {
+                "name": "kernel",
+                "category": "cpu_op",
+                "process": 6523,
+                "thread": 6523,
+                "trace_duration_us": 12.5
+              },
+              {
+                "name": "Dequeue@kernel",
+                "category": "dequeue",
+                "process": 6523,
+                "thread": 6554,
+                "trace_duration_us": 10.28
+              },
+              {
+                "name": "kernel",
+                "category": "cpu_op",
+                "process": 6523,
+                "thread": 6523,
+                "trace_duration_us": 10.18
+              },
+              {
+                "name": "kernel",
+                "category": "cpu_op",
+                "process": 6523,
+                "thread": 6523,
+                "trace_duration_us": 9.84
+              },
+              {
+                "name": "Enqueue@kernel",
+                "category": "enqueue",
+                "process": 6523,
+                "thread": 6523,
+                "trace_duration_us": 9.65
+              },
+              {
+                "name": "Enqueue@kernel",
+                "category": "enqueue",
+                "process": 6523,
+                "thread": 6523,
+                "trace_duration_us": 8.99
+              },
+              {
+                "name": "kernel",
+                "category": "uncategorized",
+                "process": 6679968,
+                "thread": 47,
+                "trace_duration_us": 8.144
+              },
+              {
+                "name": "Computing",
+                "category": "uncategorized",
+                "process": 6680480,
+                "thread": 2,
+                "trace_duration_us": 8.144
+              },
+              {
+                "name": "Enqueue@kernel",
+                "category": "enqueue",
+                "process": 6523,
+                "thread": 6523,
+                "trace_duration_us": 7.91
+              },
+              {
+                "name": "Dequeue@kernel",
+                "category": "dequeue",
+                "process": 6523,
+                "thread": 6554,
+                "trace_duration_us": 7.67
+              },
+              {
+                "name": "Enqueue@kernel",
+                "category": "enqueue",
+                "process": 6523,
+                "thread": 6523,
+                "trace_duration_us": 7.51
+              }
+            ]
+          },
+          "invocations": 5,
+          "note": "Trace durations include profiling overhead and are not acceptance timings; inspect categories/processes to distinguish CPU from NPU."
+        }
+      }
+    },
+    "decisions": [
+      {
+        "candidate_id": "9b87540218c526d1",
+        "incumbent_before": "03438c33bc541d77",
+        "best": "9b87540218c526d1",
+        "evaluation_id": "240327f10bee4c47a8d72632643660e4",
+        "speedup_geomean": 1.9385925646000068,
+        "bootstrap_95_interval": [
+          1.919239591830414,
+          1.9579788378283178
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                32,
+                1024
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.9660209042578187,
+            "baseline_us": 214.16749954223633,
+            "candidate_us": 109.33200120925903
+          },
+          {
+            "case": {
+              "shape": [
+                32,
+                1024
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 2.3888834719347605,
+            "baseline_us": 254.97150421142578,
+            "candidate_us": 107.86699652671814
+          },
+          {
+            "case": {
+              "shape": [
+                128,
+                4096
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.5138781287151888,
+            "baseline_us": 161.8774950504303,
+            "candidate_us": 106.74200057983398
+          },
+          {
+            "case": {
+              "shape": [
+                128,
+                4096
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.9864249392734163,
+            "baseline_us": 210.00850200653076,
+            "candidate_us": 106.57000541687012
+          }
+        ],
+        "accepted": true,
+        "reason": "accepted",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      },
+      {
+        "candidate_id": "b79fd38ea36a64b3",
+        "incumbent_before": "9b87540218c526d1",
+        "best": "9b87540218c526d1",
+        "evaluation_id": "4e7f922a8e8f491fb3eedcaa9f25340c",
+        "speedup_geomean": 1.0054857644161266,
+        "bootstrap_95_interval": [
+          1.0011482301847843,
+          1.011880575550633
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                32,
+                1024
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.002612332352453,
+            "baseline_us": 106.82549476623535,
+            "candidate_us": 105.82450032234192
+          },
+          {
+            "case": {
+              "shape": [
+                32,
+                1024
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.000633989643061,
+            "baseline_us": 105.23250102996826,
+            "candidate_us": 105.00349998474121
+          },
+          {
+            "case": {
+              "shape": [
+                128,
+                4096
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.0099891117186004,
+            "baseline_us": 106.66199922561646,
+            "candidate_us": 105.88849782943726
+          },
+          {
+            "case": {
+              "shape": [
+                128,
+                4096
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.008738786631467,
+            "baseline_us": 106.42799735069275,
+            "candidate_us": 105.50600290298462
+          }
+        ],
+        "accepted": false,
+        "reason": "improvement_not_established",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      },
+      {
+        "candidate_id": "7ccdc2c0b9e8161e",
+        "incumbent_before": "9b87540218c526d1",
+        "best": "9b87540218c526d1",
+        "evaluation_id": "808e96c62f7640509c1c30aec5ebc134",
+        "speedup_geomean": 1.0002496096157367,
+        "bootstrap_95_interval": [
+          0.9958437515346512,
+          1.0108450023160083
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                32,
+                1024
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 0.998358779517792,
+            "baseline_us": 105.82799911499023,
+            "candidate_us": 105.79650402069092
+          },
+          {
+            "case": {
+              "shape": [
+                32,
+                1024
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.0014214856501147,
+            "baseline_us": 105.1800012588501,
+            "candidate_us": 104.90999817848206
+          },
+          {
+            "case": {
+              "shape": [
+                128,
+                4096
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.0018240540619001,
+            "baseline_us": 104.90450263023376,
+            "candidate_us": 104.80200052261353
+          },
+          {
+            "case": {
+              "shape": [
+                128,
+                4096
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 0.9993981949997279,
+            "baseline_us": 106.08900189399719,
+            "candidate_us": 106.31850361824036
+          }
+        ],
+        "accepted": false,
+        "reason": "improvement_not_established",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      }
+    ],
+    "failures": [
+      {
+        "tool": "validate_kernel",
+        "arguments": {
+          "candidate_id": "ee13749434ec118f"
+        },
+        "error": "\n///------------------[ERROR][Triton][BEG]------------------\n[ConvertLinalgRToBinary] encounters error:\nloc(\"/tmp/tmp8ktptu0e/kernel.ttadapter.mlir\":1:1): error: Failed to run BiShengHIR pipeline\n\nloc(\"/tmp/tmp8ktptu0e/kernel.ttadapter.mlir\":2:3): error: ub overflow, requires 2752768 bits while 1572864 bits available! (possible reason: tiling basic block is too large or block number is more than what user expect due to multi-buffer feature is enabled and some ops need extra local buffer.)\nloc(\"/tmp/tmp8ktptu0e/kernel.ttadapter.mlir\":1:1): error: Failed to run BiShengHIR pipeline\n\nloc(\"/tmp/tmp8ktptu0e/kernel.ttadapter.mlir\":2:3): error: ub overflow, requires 2752768 bits while 1572864 bits available! (possible reason: tiling basic block is too large or block number is more than what user expect due to multi-buffer feature is enabled and some ops need extra local buffer.)\nloc(\"/tmp/tmp8ktptu0e/kernel.ttadapter.mlir\":1:1): error: Failed to run BiShengHIR pipeline\n\nloc(\"/tmp/tmp8ktptu0e/kernel.ttadapter.mlir\":2:3): error: ub overflow, requires 2752768 bits while 1572864 bits available! (possible reason: tiling basic block is too large or block number is more than what user expect due to multi-buffer feature is enabled and some ops need extra local buffer.)\nloc(\"/tmp/tmp8ktptu0e/kernel.ttadapter.mlir\":1:1): error: Failed to run BiShengHIR pipeline\n\nloc(\"/tmp/tmp8ktptu0e/kernel.ttadapter.mlir\":2:3): error: ub overflow, requires 2752768 bits while 1572864 bits available! (possible reason: tiling basic block is too large or block number is more than what user expect due to multi-buffer feature is enabled and some ops need extra local buffer.)\nloc(\"/tmp/tmp8ktptu0e/kernel.ttadapter.mlir\":1:1): error: Failed to run BiShengHIR pipeline\n\nloc(\"/tmp/tmp8ktptu0e/kernel.ttadapter.mlir\":2:3): error: ub overflow, requires 2752768 bits while 1572864 bits available! (possible reason: tiling basic block is too large or block number is more than what user expect due to multi-buffer feature is enabled and some ops need extra local buffer.)\n[ERROR] Failed to run BiShengIR pipeline\n\n\n[INFO]: The compiled kernel cache is in /opt/atomgit/.triton/cache/ve0v91GDqcO9zh_ILAHMFexRsm0a2nIVV0ju0OblB10\n\n///------------------[ERROR][Triton][END]------------------\n"
+      },
+      {
+        "tool": "profile_kernel",
+        "arguments": {
+          "candidate_id": "9b87540218c526d1"
+        },
+        "error": "'profile' object has no attribute 'key_averages'"
+      }
+    ]
+  },
+  "http_agent_npu": {
+    "best_config": {
+      "block": 4096,
+      "unroll": 1
+    },
+    "result": {
+      "status": "complete",
+      "planner": "chat:local-protocol-fixture",
+      "best": "2d068b0ed34b3c06",
+      "baseline": "f5ae485f0181f746",
+      "promotions": 1,
+      "independent_improvement_established": true,
+      "final_comparison": {
+        "evaluation_id": "f65222c484b7401e8620ee1847208ff0",
+        "evidence_file": "/opt/atomgit/ascend-optimizer-agent/runs/http_agent_npu/evaluations/f65222c484b7401e8620ee1847208ff0.json",
+        "speedup_geomean": 1.258053732924746,
+        "bootstrap_95_interval": [
+          1.2522953871870977,
+          1.2660847166187947
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 0.9890154124385189,
+            "baseline_us": 96.62899971008301,
+            "candidate_us": 97.82999753952026
+          },
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 0.9923155632590561,
+            "baseline_us": 96.46050035953522,
+            "candidate_us": 96.28799855709076
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.59458576144477,
+            "baseline_us": 156.2999963760376,
+            "candidate_us": 97.83450067043304
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.6006486724026598,
+            "baseline_us": 157.25350379943848,
+            "candidate_us": 97.97199964523315
+          }
+        ],
+        "accepted": true,
+        "reason": "accepted",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      },
+      "finished_at": "2026-10-15T08:25:23.309725+00:00",
+      "model_text": "本地 API 替身的工具调用流程完成，不代表真实模型推理。"
+    },
+    "decisions": [
+      {
+        "candidate_id": "2d068b0ed34b3c06",
+        "incumbent_before": "f5ae485f0181f746",
+        "best": "2d068b0ed34b3c06",
+        "evaluation_id": "9fd426f669b74f60b7136b51dfc59b34",
+        "speedup_geomean": 1.2710056105334753,
+        "bootstrap_95_interval": [
+          1.258768474553092,
+          1.276015204557351
+        ],
+        "per_case": [
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 0.9971306567161359,
+            "baseline_us": 96.55050039291382,
+            "candidate_us": 96.97900116443634
+          },
+          {
+            "case": {
+              "shape": [
+                65537
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.0022521507081077,
+            "baseline_us": 96.70299887657166,
+            "candidate_us": 96.50000035762787
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float32"
+            },
+            "speedup": 1.6102249994328826,
+            "baseline_us": 157.82099962234497,
+            "candidate_us": 97.08449840545654
+          },
+          {
+            "case": {
+              "shape": [
+                1048576
+              ],
+              "dtype": "float16"
+            },
+            "speedup": 1.621713902902843,
+            "baseline_us": 157.95249938964844,
+            "candidate_us": 98.00050258636475
+          }
+        ],
+        "accepted": true,
+        "reason": "accepted",
+        "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+      }
+    ],
+    "failures": []
+  }
+}

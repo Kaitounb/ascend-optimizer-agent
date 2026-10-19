@@ -1,0 +1,9 @@
+{
+  "id": "1702e5201d4287a5",
+  "source_sha256": "1702e5201d4287a51af2f278c79f2d9efe8e5029565db39d04a74d95ca5f53c5",
+  "config": {
+    "value_tile": 16
+  },
+  "reason": "BV=16 maximum tile splitting (8 tiles per head) for the most parallel decomposition. Hypothesis: latency-bound small shapes benefit from more programs even at smaller tile size.",
+  "created_at": "2026-10-15T16:30:05.154666+00:00"
+}

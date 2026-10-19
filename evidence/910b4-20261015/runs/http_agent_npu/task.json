@@ -1,0 +1,72 @@
+{
+  "operator": "vector_add",
+  "description": "Contiguous out = x + y; inputs must remain unchanged.",
+  "dtypes": [
+    "float32",
+    "float16"
+  ],
+  "validation_shapes": [
+    [
+      1
+    ],
+    [
+      1023
+    ],
+    [
+      1024
+    ],
+    [
+      65537
+    ]
+  ],
+  "benchmark_shapes": [
+    [
+      65537
+    ],
+    [
+      1048576
+    ]
+  ],
+  "baseline_config": {
+    "block": 256,
+    "unroll": 1
+  },
+  "search_configs": [
+    {
+      "block": 1024,
+      "unroll": 1
+    },
+    {
+      "block": 4096,
+      "unroll": 1
+    },
+    {
+      "block": 16384,
+      "unroll": 1
+    },
+    {
+      "block": 4096,
+      "unroll": 4
+    },
+    {
+      "block": 1024,
+      "unroll": 4
+    },
+    {
+      "block": 16384,
+      "unroll": 4
+    }
+  ],
+  "schema_version": 1,
+  "seed": 20261015,
+  "measurement": {
+    "warmup": 10,
+    "iterations": 20,
+    "rounds": 7
+  },
+  "acceptance": {
+    "min_speedup": 1.02,
+    "min_case_speedup": 0.98,
+    "bootstrap_samples": 2000
+  }
+}

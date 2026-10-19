@@ -1,0 +1,233 @@
+{
+  "gdn_commit": {
+    "status": "complete",
+    "planner": "chat:deepseek-v4-flash",
+    "best": "e9f3e09f4b758657",
+    "baseline": "e9f3e09f4b758657",
+    "promotions": 0,
+    "independent_improvement_established": false,
+    "final_comparison": {
+      "evaluation_id": "c5bc1abf1c3b4edb8d61695a71ba2d6b",
+      "evidence_file": "/opt/atomgit/ascend-optimizer-agent/runs-20261016/gdn_commit/evaluations/c5bc1abf1c3b4edb8d61695a71ba2d6b.json",
+      "speedup_geomean": 0.9990369150397562,
+      "bootstrap_95_interval": [
+        0.994393585592905,
+        1.010198767946186
+      ],
+      "per_case": [
+        {
+          "case": {
+            "shape": [
+              1,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "speedup": 0.993167254042661,
+          "baseline_us": 125.96200108528137,
+          "candidate_us": 127.02000141143799
+        },
+        {
+          "case": {
+            "shape": [
+              8,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "speedup": 1.0047717903716105,
+          "baseline_us": 126.30200386047363,
+          "candidate_us": 125.73800086975098
+        },
+        {
+          "case": {
+            "shape": [
+              32,
+              48,
+              128,
+              128,
+              4
+            ],
+            "dtype": "float32"
+          },
+          "speedup": 0.9992054233470863,
+          "baseline_us": 335.2519989013672,
+          "candidate_us": 335.7219934463501
+        }
+      ],
+      "accepted": false,
+      "reason": "improvement_not_established",
+      "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"
+    },
+    "finished_at": "2026-10-15T16:24:30.494902+00:00",
+    "model_text": "All three completed decisions are now recorded. The history shows `candidate_decision` events for all three benchmarked candidates:\n\n- `45a13851f0482124` (value_tile=64) → rejected, `improvement_not_established`\n- `1afe46490ea0a7ce` (value_tile=32) → rejected, `case_regression`\n- `1702e5201d4287a5` (value_tile=16) → rejected, `case_regression`\n\nThis satisfies the `min_decisions: 3` requirement. Best remains the baseline `e9f3e09f4b758657`; value_tile=128 is documented as a compile failure (UB overflow), so no further suggested config remains to try.\n\n## 最终结论（中文）\n\n**已完成 3 个有效决策**，全部完成 compile → validate → bench → accept 全流程：\n\n| 候选 | value_tile | geomean speedup | 最差 case | 决策 |\n|---|---|---|---|---|\n| 45a13851f0482124 | 64 | 0.999 | 0.994 | 拒绝（improvement_not_established） |\n| 1afe46490ea0a7ce | 32 | 0.842 | 0.694 | 拒绝（case_regression） |\n| 1702e5201d4287a5 | 16 | 0.565 | 0.367 | 拒绝（case_regression） |\n| f0a37c31f5b9521b | 128 | — | — | 编译失败（UB 溢出：需 2113536 bit > 可用 1572864 bit） |\n\n**观察**：性能随 `value_tile` 减小单调恶化，且 batch 越大退化越剧烈（16 在 batch=32 上仅 0.37x）。原因是 GDN commit 内层回放循环中每个 step 的 key/decay 加载会被每个 vd-tile 重复执行，tile 越小冗余访存越多；case=1 时占用核少、并行度不足，故退化不明显。反向尝试 128（单一 vd-tile 消除冗余）则因 128×128 fp32 状态块超出 UB 而无法编译。\n\n**验证**：三个成功编译的候选均通过全部 CPU oracle + 原 NPU 逐位一致性校验（full/edge、多 seed、混合截断前缀、null/重排 ID、int32/int64 元数据），确认配置变换不改变数值路径。\n\n**局限**：`value_tile` 是任务唯一暴露的旋钮，只影响内层冗余重载，无法改变算法结构；128 不可编译封住了\"更大 tile\"方向。因此 `value_tile=0`（解析为 64）即最优，**本次在可用配置空间内未找到超过 1.02x 的提升，无提升是合法结论**。以上为诊断性说明，最终权威对比由宿主生成。",
+    "profile": {
+      "ok": true,
+      "result": {
+        "trace": "/opt/atomgit/ascend-optimizer-agent/runs-20261016/gdn_commit/profiles/e9f3e09f4b758657-10d43f1e/trace.json",
+        "summary": {
+          "events": 93,
+          "categories": {
+            "cpu_op": 5,
+            "dequeue": 5,
+            "async_task_queue": 10,
+            "enqueue": 5,
+            "uncategorized": 48,
+            "HostToDevice": 10,
+            "async_npu": 10
+          },
+          "longest_complete_events": [
+            {
+              "name": "_commit_kernel",
+              "category": "uncategorized",
+              "process": 1467808,
+              "thread": 47,
+              "trace_duration_us": 339.3065
+            },
+            {
+              "name": "Computing",
+              "category": "uncategorized",
+              "process": 1468320,
+              "thread": 2,
+              "trace_duration_us": 339.306
+            },
+            {
+              "name": "_commit_kernel",
+              "category": "uncategorized",
+              "process": 1467808,
+              "thread": 47,
+              "trace_duration_us": 338.847
+            },
+            {
+              "name": "Computing",
+              "category": "uncategorized",
+              "process": 1468320,
+              "thread": 2,
+              "trace_duration_us": 338.847
+            },
+            {
+              "name": "_commit_kernel",
+              "category": "uncategorized",
+              "process": 1467808,
+              "thread": 47,
+              "trace_duration_us": 338.2265
+            },
+            {
+              "name": "Computing",
+              "category": "uncategorized",
+              "process": 1468320,
+              "thread": 2,
+              "trace_duration_us": 338.226
+            },
+            {
+              "name": "_commit_kernel",
+              "category": "uncategorized",
+              "process": 1467808,
+              "thread": 47,
+              "trace_duration_us": 337.307
+            },
+            {
+              "name": "Computing",
+              "category": "uncategorized",
+              "process": 1468320,
+              "thread": 2,
+              "trace_duration_us": 337.307
+            },
+            {
+              "name": "_commit_kernel",
+              "category": "uncategorized",
+              "process": 1467808,
+              "thread": 47,
+              "trace_duration_us": 336.0465
+            },
+            {
+              "name": "Computing",
+              "category": "uncategorized",
+              "process": 1468320,
+              "thread": 2,
+              "trace_duration_us": 336.046
+            },
+            {
+              "name": "Dequeue@_commit_kernel",
+              "category": "dequeue",
+              "process": 1433,
+              "thread": 1464,
+              "trace_duration_us": 43.95
+            },
+            {
+              "name": "_commit_kernel",
+              "category": "cpu_op",
+              "process": 1433,
+              "thread": 1433,
+              "trace_duration_us": 28.44
+            },
+            {
+              "name": "Enqueue@_commit_kernel",
+              "category": "enqueue",
+              "process": 1433,
+              "thread": 1433,
+              "trace_duration_us": 21.8
+            },
+            {
+              "name": "_commit_kernel",
+              "category": "cpu_op",
+              "process": 1433,
+              "thread": 1433,
+              "trace_duration_us": 17.45
+            },
+            {
+              "name": "_commit_kernel",
+              "category": "cpu_op",
+              "process": 1433,
+              "thread": 1433,
+              "trace_duration_us": 17.33
+            },
+            {
+              "name": "Enqueue@_commit_kernel",
+              "category": "enqueue",
+              "process": 1433,
+              "thread": 1433,
+              "trace_duration_us": 14.99
+            },
+            {
+              "name": "_commit_kernel",
+              "category": "cpu_op",
+              "process": 1433,
+              "thread": 1433,
+              "trace_duration_us": 14.38
+            },
+            {
+              "name": "Enqueue@_commit_kernel",
+              "category": "enqueue",
+              "process": 1433,
+              "thread": 1433,
+              "trace_duration_us": 14.19
+            },
+            {
+              "name": "_commit_kernel",
+              "category": "cpu_op",
+              "process": 1433,
+              "thread": 1433,
+              "trace_duration_us": 11.63
+            },
+            {
+              "name": "Dequeue@_commit_kernel",
+              "category": "dequeue",
+              "process": 1433,
+              "thread": 1464,
+              "trace_duration_us": 11.06
+            }
+          ]
+        },
+        "invocations": 5,
+        "note": "Profiler is diagnostic, not acceptance timing"
+      }
+    }
+  }
+}

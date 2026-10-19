@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "version": "0.2.0",
+  "tasks": 4,
+  "install_mode": "offline --no-index --no-deps into temporary target",
+  "wheel_sha256": "116dddf16dce167c16ff0f0dd67009ffab4b89b521fb05d62b619d01c1527edc"
+}

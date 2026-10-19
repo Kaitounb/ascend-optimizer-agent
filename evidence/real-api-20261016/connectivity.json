@@ -1,0 +1,19 @@
+{
+  "base_url": "https://api.deepseek.com",
+  "requested_model": "deepseek-v4-flash",
+  "returned_model": "deepseek-flash",
+  "usage": {
+    "prompt_tokens": 269,
+    "completion_tokens": 16,
+    "total_tokens": 285,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 269
+  },
+  "tool_call_count": 1,
+  "tools": [
+    "get_task"
+  ]
+}

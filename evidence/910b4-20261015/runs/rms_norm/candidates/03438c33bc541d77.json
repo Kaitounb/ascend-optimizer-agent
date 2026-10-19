@@ -1,0 +1,10 @@
+{
+  "id": "03438c33bc541d77",
+  "source_sha256": "03438c33bc541d77158042c5d11b8c32af5349b3f949dca0f65da33b9a2be7e9",
+  "config": {
+    "implementation": "torch_eager",
+    "rows": 1
+  },
+  "reason": "Original task baseline",
+  "created_at": "2026-10-15T08:20:55.206227+00:00"
+}

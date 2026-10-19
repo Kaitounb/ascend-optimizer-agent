@@ -1,0 +1,9 @@
+{
+  "id": "1702e5201d4287a5",
+  "source_sha256": "1702e5201d4287a51af2f278c79f2d9efe8e5029565db39d04a74d95ca5f53c5",
+  "config": {
+    "value_tile": 16
+  },
+  "reason": "BV=16 without unroll: even smaller value tile, more parallel programs.",
+  "created_at": "2026-10-16T00:04:38.533313+00:00"
+}

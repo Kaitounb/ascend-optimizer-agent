@@ -1,0 +1,10 @@
+{
+  "id": "9b027934997f4438",
+  "source_sha256": "9b027934997f4438fff68b25d58d7783568888933ea47c2ab9066364c61f66c3",
+  "config": {
+    "value_tile": 64,
+    "unroll": true
+  },
+  "reason": "Suggested config: value_tile=64 with unroll=True. For benchmark shapes kd=128, baseline picks tile=64 (kd<=128). This candidate makes the tiling explicit at 64 and statically unrolls the window loop (W=4 <= 4), removing loop-carried branch overhead across the per-step token guards. Hypothesis: unrolling exposes ILP for the state update GEMMs and reduces scalar loop control, improving throughput without changing math.",
+  "created_at": "2026-10-16T00:11:14.452743+00:00"
+}

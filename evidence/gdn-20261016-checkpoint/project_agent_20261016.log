@@ -1,0 +1,66 @@
+nohup: ignoring input
+test_chat_protocol (test_api.ProtocolTests.test_chat_protocol) ... ok
+test_reject_http_nonloopback_and_credentials_in_url (test_api.ProtocolTests.test_reject_http_nonloopback_and_credentials_in_url) ... ok
+test_responses_protocol (test_api.ProtocolTests.test_responses_protocol) ... ok
+test_cannot_promote_without_real_pipeline (test_contract.ContractTests.test_cannot_promote_without_real_pipeline) ... ok
+test_changed_incumbent_requires_fresh_pairing (test_contract.ContractTests.test_changed_incumbent_requires_fresh_pairing) ... ok
+test_recompile_failure_clears_previous_validation (test_contract.ContractTests.test_recompile_failure_clears_previous_validation) ... ok
+test_resume_preserves_best_but_discards_benchmark_authority (test_contract.ContractTests.test_resume_preserves_best_but_discards_benchmark_authority) ... ok
+test_source_tampering_invalidates_evidence (test_contract.ContractTests.test_source_tampering_invalidates_evidence) ... ok
+test_task_edits_fail_closed (test_contract.ContractTests.test_task_edits_fail_closed) ... ok
+test_unknown_tool_or_invalid_config_is_not_executed (test_contract.ContractTests.test_unknown_tool_or_invalid_config_is_not_executed) ... ok
+test_contract_rejects_unbounded_allocation (test_contract.StatisticsTests.test_contract_rejects_unbounded_allocation) ... ok
+test_nan_zero_negative_and_missing_samples_rejected (test_contract.StatisticsTests.test_nan_zero_negative_and_missing_samples_rejected) ... ok
+test_strong_win_promotes_and_regression_is_rejected (test_contract.StatisticsTests.test_strong_win_promotes_and_regression_is_rejected) ... ok
+test_arithmetic_body_matches_frozen_project_for_every_candidate (test_gdn_adapter.GDNAdapterTests.test_arithmetic_body_matches_frozen_project_for_every_candidate) ... ok
+test_contract_and_model_schema_accept_only_supported_geometry_and_config (test_gdn_adapter.GDNAdapterTests.test_contract_and_model_schema_accept_only_supported_geometry_and_config) ... ok
+test_early_model_prose_cannot_claim_complete (test_gdn_adapter.GDNAdapterTests.test_early_model_prose_cannot_claim_complete) ... ok
+test_private_key_file_and_request_options (test_gdn_adapter.GDNAdapterTests.test_private_key_file_and_request_options) ... ok
+test_custom_key_environment_is_removed_by_value (test_runtime.RuntimeTests.test_custom_key_environment_is_removed_by_value) ... ok
+test_profiler_trace_summary_does_not_need_key_averages (test_runtime.RuntimeTests.test_profiler_trace_summary_does_not_need_key_averages) ... ok
+test_timeout_terminates_process_and_keeps_workspace (test_runtime.RuntimeTests.test_timeout_terminates_process_and_keeps_workspace) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.631s
+
+OK
+{"tool": "compile_kernel", "ok": true, "candidate_id": "e9f3e09f4b758657"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "e9f3e09f4b758657"}
+{"tool": "get_task", "ok": true, "candidate_id": null}
+{"tool": "get_environment", "ok": true, "candidate_id": null}
+{"tool": "read_candidate", "ok": true, "candidate_id": "e9f3e09f4b758657"}
+{"tool": "get_history", "ok": true, "candidate_id": null}
+{"tool": "profile_kernel", "ok": true, "candidate_id": "e9f3e09f4b758657"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "1afe46490ea0a7ce"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "1afe46490ea0a7ce"}
+{"tool": "bench_kernel", "ok": true, "candidate_id": "1afe46490ea0a7ce"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": false, "candidate_id": "f0a37c31f5b9521b"}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "45a13851f0482124"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "45a13851f0482124"}
+{"tool": "bench_kernel", "ok": true, "candidate_id": "45a13851f0482124"}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "1702e5201d4287a5"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "1702e5201d4287a5"}
+{"tool": "bench_kernel", "ok": true, "candidate_id": "1702e5201d4287a5"}
+{"tool": "accept_candidate", "ok": true, "candidate_id": "45a13851f0482124"}
+{"tool": "accept_candidate", "ok": true, "candidate_id": "1afe46490ea0a7ce"}
+{"tool": "accept_candidate", "ok": true, "candidate_id": "1702e5201d4287a5"}
+{"tool": "get_history", "ok": true, "candidate_id": null}
+{"tool": "profile_kernel", "ok": true, "candidate_id": "e9f3e09f4b758657"}
+REAL_PROJECT_AGENT_RESULT gdn_commit {"status": "complete", "planner": "chat:deepseek-v4-flash", "best": "e9f3e09f4b758657", "baseline": "e9f3e09f4b758657", "promotions": 0, "independent_improvement_established": false, "final_comparison": {"evaluation_id": "c5bc1abf1c3b4edb8d61695a71ba2d6b", "evidence_file": "/opt/atomgit/ascend-optimizer-agent/runs-20261016/gdn_commit/evaluations/c5bc1abf1c3b4edb8d61695a71ba2d6b.json", "speedup_geomean": 0.9990369150397562, "bootstrap_95_interval": [0.994393585592905, 1.010198767946186], "per_case": [{"case": {"shape": [1, 48, 128, 128, 4], "dtype": "float32"}, "speedup": 0.993167254042661, "baseline_us": 125.96200108528137, "candidate_us": 127.02000141143799}, {"case": {"shape": [8, 48, 128, 128, 4], "dtype": "float32"}, "speedup": 1.0047717903716105, "baseline_us": 126.30200386047363, "candidate_us": 125.73800086975098}, {"case": {"shape": [32, 48, 128, 128, 4], "dtype": "float32"}, "speedup": 0.9992054233470863, "baseline_us": 335.2519989013672, "candidate_us": 335.7219934463501}], "accepted": false, "reason": "improvement_not_established", "method": "ABBA/BAAB paired NPU events; equal-weight cases; median ratios; bootstrap exploratory interval"}, "finished_at": "2026-10-15T16:24:30.494902+00:00", "model_text": "All three completed decisions are now recorded. The history shows `candidate_decision` events for all three benchmarked candidates:\n\n- `45a13851f0482124` (value_tile=64) \u2192 rejected, `improvement_not_established`\n- `1afe46490ea0a7ce` (value_tile=32) \u2192 rejected, `case_regression`\n- `1702e5201d4287a5` (value_tile=16) \u2192 rejected, `case_regression`\n\nThis satisfies the `min_decisions: 3` requirement. Best remains the baseline `e9f3e09f4b758657`; value_tile=128 is documented as a compile failure (UB overflow), so no further suggested config remains to try.\n\n## \u6700\u7ec8\u7ed3\u8bba\uff08\u4e2d\u6587\uff09\n\n**\u5df2\u5b8c\u6210 3 \u4e2a\u6709\u6548\u51b3\u7b56**\uff0c\u5168\u90e8\u5b8c\u6210 compile \u2192 validate \u2192 bench \u2192 accept \u5168\u6d41\u7a0b\uff1a\n\n| \u5019\u9009 | value_tile | geomean speedup | \u6700\u5dee case | \u51b3\u7b56 |\n|---|---|---|---|---|\n| 45a13851f0482124 | 64 | 0.999 | 0.994 | \u62d2\u7edd\uff08improvement_not_established\uff09 |\n| 1afe46490ea0a7ce | 32 | 0.842 | 0.694 | \u62d2\u7edd\uff08case_regression\uff09 |\n| 1702e5201d4287a5 | 16 | 0.565 | 0.367 | \u62d2\u7edd\uff08case_regression\uff09 |\n| f0a37c31f5b9521b | 128 | \u2014 | \u2014 | \u7f16\u8bd1\u5931\u8d25\uff08UB \u6ea2\u51fa\uff1a\u9700 2113536 bit > \u53ef\u7528 1572864 bit\uff09 |\n\n**\u89c2\u5bdf**\uff1a\u6027\u80fd\u968f `value_tile` \u51cf\u5c0f\u5355\u8c03\u6076\u5316\uff0c\u4e14 batch \u8d8a\u5927\u9000\u5316\u8d8a\u5267\u70c8\uff0816 \u5728 batch=32 \u4e0a\u4ec5 0.37x\uff09\u3002\u539f\u56e0\u662f GDN commit \u5185\u5c42\u56de\u653e\u5faa\u73af\u4e2d\u6bcf\u4e2a step \u7684 key/decay \u52a0\u8f7d\u4f1a\u88ab\u6bcf\u4e2a vd-tile \u91cd\u590d\u6267\u884c\uff0ctile \u8d8a\u5c0f\u5197\u4f59\u8bbf\u5b58\u8d8a\u591a\uff1bcase=1 \u65f6\u5360\u7528\u6838\u5c11\u3001\u5e76\u884c\u5ea6\u4e0d\u8db3\uff0c\u6545\u9000\u5316\u4e0d\u660e\u663e\u3002\u53cd\u5411\u5c1d\u8bd5 128\uff08\u5355\u4e00 vd-tile \u6d88\u9664\u5197\u4f59\uff09\u5219\u56e0 128\u00d7128 fp32 \u72b6\u6001\u5757\u8d85\u51fa UB \u800c\u65e0\u6cd5\u7f16\u8bd1\u3002\n\n**\u9a8c\u8bc1**\uff1a\u4e09\u4e2a\u6210\u529f\u7f16\u8bd1\u7684\u5019\u9009\u5747\u901a\u8fc7\u5168\u90e8 CPU oracle + \u539f NPU \u9010\u4f4d\u4e00\u81f4\u6027\u6821\u9a8c\uff08full/edge\u3001\u591a seed\u3001\u6df7\u5408\u622a\u65ad\u524d\u7f00\u3001null/\u91cd\u6392 ID\u3001int32/int64 \u5143\u6570\u636e\uff09\uff0c\u786e\u8ba4\u914d\u7f6e\u53d8\u6362\u4e0d\u6539\u53d8\u6570\u503c\u8def\u5f84\u3002\n\n**\u5c40\u9650**\uff1a`value_tile` \u662f\u4efb\u52a1\u552f\u4e00\u66b4\u9732\u7684\u65cb\u94ae\uff0c\u53ea\u5f71\u54cd\u5185\u5c42\u5197\u4f59\u91cd\u8f7d\uff0c\u65e0\u6cd5\u6539\u53d8\u7b97\u6cd5\u7ed3\u6784\uff1b128 \u4e0d\u53ef\u7f16\u8bd1\u5c01\u4f4f\u4e86\"\u66f4\u5927 tile\"\u65b9\u5411\u3002\u56e0\u6b64 `value_tile=0`\uff08\u89e3\u6790\u4e3a 64\uff09\u5373\u6700\u4f18\uff0c**\u672c\u6b21\u5728\u53ef\u7528\u914d\u7f6e\u7a7a\u95f4\u5185\u672a\u627e\u5230\u8d85\u8fc7 1.02x \u7684\u63d0\u5347\uff0c\u65e0\u63d0\u5347\u662f\u5408\u6cd5\u7ed3\u8bba**\u3002\u4ee5\u4e0a\u4e3a\u8bca\u65ad\u6027\u8bf4\u660e\uff0c\u6700\u7ec8\u6743\u5a01\u5bf9\u6bd4\u7531\u5bbf\u4e3b\u751f\u6210\u3002", "profile": {"ok": true, "result": {"trace": "/opt/atomgit/ascend-optimizer-agent/runs-20261016/gdn_commit/profiles/e9f3e09f4b758657-10d43f1e/trace.json", "summary": {"events": 93, "categories": {"cpu_op": 5, "dequeue": 5, "async_task_queue": 10, "enqueue": 5, "uncategorized": 48, "HostToDevice": 10, "async_npu": 10}, "longest_complete_events": [{"name": "_commit_kernel", "category": "uncategorized", "process": 1467808, "thread": 47, "trace_duration_us": 339.3065}, {"name": "Computing", "category": "uncategorized", "process": 1468320, "thread": 2, "trace_duration_us": 339.306}, {"name": "_commit_kernel", "category": "uncategorized", "process": 1467808, "thread": 47, "trace_duration_us": 338.847}, {"name": "Computing", "category": "uncategorized", "process": 1468320, "thread": 2, "trace_duration_us": 338.847}, {"name": "_commit_kernel", "category": "uncategorized", "process": 1467808, "thread": 47, "trace_duration_us": 338.2265}, {"name": "Computing", "category": "uncategorized", "process": 1468320, "thread": 2, "trace_duration_us": 338.226}, {"name": "_commit_kernel", "category": "uncategorized", "process": 1467808, "thread": 47, "trace_duration_us": 337.307}, {"name": "Computing", "category": "uncategorized", "process": 1468320, "thread": 2, "trace_duration_us": 337.307}, {"name": "_commit_kernel", "category": "uncategorized", "process": 1467808, "thread": 47, "trace_duration_us": 336.0465}, {"name": "Computing", "category": "uncategorized", "process": 1468320, "thread": 2, "trace_duration_us": 336.046}, {"name": "Dequeue@_commit_kernel", "category": "dequeue", "process": 1433, "thread": 1464, "trace_duration_us": 43.95}, {"name": "_commit_kernel", "category": "cpu_op", "process": 1433, "thread": 1433, "trace_duration_us": 28.44}, {"name": "Enqueue@_commit_kernel", "category": "enqueue", "process": 1433, "thread": 1433, "trace_duration_us": 21.8}, {"name": "_commit_kernel", "category": "cpu_op", "process": 1433, "thread": 1433, "trace_duration_us": 17.45}, {"name": "_commit_kernel", "category": "cpu_op", "process": 1433, "thread": 1433, "trace_duration_us": 17.33}, {"name": "Enqueue@_commit_kernel", "category": "enqueue", "process": 1433, "thread": 1433, "trace_duration_us": 14.99}, {"name": "_commit_kernel", "category": "cpu_op", "process": 1433, "thread": 1433, "trace_duration_us": 14.38}, {"name": "Enqueue@_commit_kernel", "category": "enqueue", "process": 1433, "thread": 1433, "trace_duration_us": 14.19}, {"name": "_commit_kernel", "category": "cpu_op", "process": 1433, "thread": 1433, "trace_duration_us": 11.63}, {"name": "Dequeue@_commit_kernel", "category": "dequeue", "process": 1433, "thread": 1464, "trace_duration_us": 11.06}]}, "invocations": 5, "note": "Profiler is diagnostic, not acceptance timing"}}}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "276eb610f870d733"}
+{"tool": "validate_kernel", "ok": true, "candidate_id": "276eb610f870d733"}
+{"tool": "get_task", "ok": true, "candidate_id": null}
+{"tool": "get_environment", "ok": true, "candidate_id": null}
+{"tool": "read_candidate", "ok": true, "candidate_id": "276eb610f870d733"}
+{"tool": "get_history", "ok": true, "candidate_id": null}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "propose_candidate", "ok": true, "candidate_id": null}
+{"tool": "read_candidate", "ok": true, "candidate_id": "ab8ff969e5025022"}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "ab8ff969e5025022"}
+{"tool": "compile_kernel", "ok": false, "candidate_id": "dab13b325608c5b1"}
+{"tool": "compile_kernel", "ok": true, "candidate_id": "39bd021fd2cd5ee4"}

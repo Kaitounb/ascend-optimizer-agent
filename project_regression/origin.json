@@ -1,0 +1,19 @@
+{
+  "path": "upstream/vllm-ascend-fia/tests/e2e/pull_request/one_card/triton/test_gdn_recover.py",
+  "sha256": "75d8914e5de3f284f4b6f5886b0a3b276d4ffbec0d4ba51da141169b812dc1ad",
+  "project_commit": "622725cd44aa47186dc1f1c9f08485e9013fff7a",
+  "additional_files": {
+    "test_original_gdn_batch.py": {
+      "source_path": "tests/e2e/pull_request/one_card/triton/test_gdn_recover_batch.py",
+      "sha256": "7e821a2e8a9339884e2eb7d49fa2f6a3c47d39d1e170c66f322d4e79b3eed799"
+    },
+    "test_original_contract.py": {
+      "source_path": "tests/ut/ops/test_gdn_recover_contract.py",
+      "sha256": "9d32a76e08599c6f5ddee27a16fc43cc4fbd67bc764a7168f20e5455d50e1b21"
+    },
+    "context_source.py": {
+      "source_path": "vllm_ascend/ops/gdn_recover.py",
+      "sha256": "3ef758bde46eeda6695d9165f7b294958b9df52b83b0c8a75b2c2a781dc568ae"
+    }
+  }
+}

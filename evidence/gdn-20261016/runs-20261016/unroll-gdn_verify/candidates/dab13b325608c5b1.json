@@ -1,0 +1,9 @@
+{
+  "id": "dab13b325608c5b1",
+  "source_sha256": "dab13b325608c5b1ab9b71e14283988e44103fbd0e63b079e2d857354897e7c8",
+  "config": {
+    "value_tile": 128
+  },
+  "reason": "Test value_tile=128 without unroll. With VD=128 benchmark shapes, a single 128-wide value tile means one program per head (no tile axis split), eliminating the redundant state reload per tile from the baseline's 64-tile. Keeps the original loop (no unroll) to avoid the UB overflow, so per-step branch control is unchanged. Hypothesis: fewer programs each doing a full [128,128] state update amortizes state loads; may help large-batch cases.",
+  "created_at": "2026-10-16T00:13:29.750948+00:00"
+}

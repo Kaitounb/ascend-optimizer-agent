@@ -1,0 +1,10 @@
+{
+  "id": "ee13749434ec118f",
+  "source_sha256": "ee13749434ec118f989858f7af8a0d4a0340f8d5fb430a835da701be716233f9",
+  "config": {
+    "implementation": "triton",
+    "rows": 8
+  },
+  "reason": "Search hypothesis: {\"implementation\": \"triton\", \"rows\": 8}",
+  "created_at": "2026-10-15T08:22:14.469087+00:00"
+}

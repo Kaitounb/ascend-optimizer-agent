@@ -1,0 +1,7 @@
+{
+  "public_url": "https://raw.githubusercontent.com/Kaitounb/vllm-ascend/622725cd44aa47186dc1f1c9f08485e9013fff7a/vllm_ascend/ops/triton/mamba/gdn_recover.py",
+  "sha256": "3823d73346f88aad94b146e3b16f1b4ab8f558d74f62742cd142f8f746f74b16",
+  "byte_identical": true,
+  "task_data": "Synthetic random tensors; fixed shapes; generated tiling parameters; no model weights, prompts, user datasets, or production traffic",
+  "credentials": "API key excluded from task, source, model messages and NPU worker environment"
+}

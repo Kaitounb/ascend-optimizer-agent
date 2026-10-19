@@ -1,0 +1,9 @@
+{
+  "id": "f0a37c31f5b9521b",
+  "source_sha256": "f0a37c31f5b9521b6e9ab0ef52c0b43dd141e4ccc196359dca3e5322957a442a",
+  "config": {
+    "value_tile": 128
+  },
+  "reason": "BV=128 covers full VD (128) in one tile, removing the z-dimension and halving program count. Hypothesis: fewer, larger programs reduce scheduling overhead for benchmark shapes (VD=128).",
+  "created_at": "2026-10-15T16:30:05.126762+00:00"
+}

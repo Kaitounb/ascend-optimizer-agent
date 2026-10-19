@@ -1,0 +1,10 @@
+{
+  "id": "45a13851f0482124",
+  "source_sha256": "45a13851f0482124445139a9dad54e984d6e2204941a765db84b0c919ca0f497",
+  "config": {
+    "value_tile": 64,
+    "unroll": false
+  },
+  "reason": "value_tile=64 without unroll: should match baseline's effective tile=64 for kd<=128. Test whether the non-unrolled explicit tile reproduces baseline performance, confirming baseline already at this tile.",
+  "created_at": "2026-10-16T00:08:03.340007+00:00"
+}
